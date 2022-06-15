@@ -1,0 +1,25 @@
+{
+    "name": "muscobytes/coresignaldbapi",
+    "description": "",
+    "type": "library",
+    "require": {
+        "spatie/data-transfer-object": "dev-main",
+        "nesbot/carbon": "3.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Muscobytes\\CoresignalDbApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Stanislav Surskiy",
+            "email": "ssurskiy@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
