@@ -1,0 +1,138 @@
+[
+    {
+        "id": 44648021,
+        "member_id": 56492792,
+        "website": "https://uk.linkedin.com/company/lyft",
+        "created": "2019-04-13 05:28:03",
+        "last_updated": "2019-06-12 03:02:12",
+        "deleted": 1
+    },
+    {
+        "id": 44648022,
+        "member_id": 56492792,
+        "website": "https://uk.linkedin.com/company/trulia",
+        "created": "2019-04-13 05:28:03",
+        "last_updated": "2019-06-12 03:02:12",
+        "deleted": 1
+    },
+    {
+        "id": 44648023,
+        "member_id": 56492792,
+        "website": "https://uk.linkedin.com/edu/northwestern-university---kellogg-school-of-management-18291",
+        "created": "2019-04-13 05:28:03",
+        "last_updated": "2019-06-12 03:02:12",
+        "deleted": 1
+    },
+    {
+        "id": 140586754,
+        "member_id": 56492792,
+        "website": "https://pk.linkedin.com/company/lyft",
+        "created": "2019-06-12 03:02:13",
+        "last_updated": "2019-07-19 20:56:08",
+        "deleted": 1
+    },
+    {
+        "id": 140586755,
+        "member_id": 56492792,
+        "website": "https://pk.linkedin.com/company/trulia",
+        "created": "2019-06-12 03:02:13",
+        "last_updated": "2019-07-19 20:56:08",
+        "deleted": 1
+    },
+    {
+        "id": 140586756,
+        "member_id": 56492792,
+        "website": "https://pk.linkedin.com/edu/northwestern-university---kellogg-school-of-management-18291",
+        "created": "2019-06-12 03:02:13",
+        "last_updated": "2019-07-19 20:56:08",
+        "deleted": 1
+    },
+    {
+        "id": 235947548,
+        "member_id": 56492792,
+        "website": "https://za.linkedin.com/company/lyft",
+        "created": "2019-07-19 20:56:09",
+        "last_updated": "2019-09-26 08:58:12",
+        "deleted": 1
+    },
+    {
+        "id": 235947549,
+        "member_id": 56492792,
+        "website": "https://za.linkedin.com/company/trulia",
+        "created": "2019-07-19 20:56:09",
+        "last_updated": "2019-09-26 08:58:12",
+        "deleted": 1
+    },
+    {
+        "id": 235947550,
+        "member_id": 56492792,
+        "website": "https://za.linkedin.com/edu/northwestern-university---kellogg-school-of-management-18291",
+        "created": "2019-07-19 20:56:09",
+        "last_updated": "2019-09-26 08:58:12",
+        "deleted": 1
+    },
+    {
+        "id": 396573289,
+        "member_id": 56492792,
+        "website": "https://ie.linkedin.com/company/lyft",
+        "created": "2019-09-26 08:58:12",
+        "last_updated": "2019-11-15 09:58:16",
+        "deleted": 1
+    },
+    {
+        "id": 396573290,
+        "member_id": 56492792,
+        "website": "https://ie.linkedin.com/school/kelloggschool/",
+        "created": "2019-09-26 08:58:12",
+        "last_updated": "2019-11-15 09:58:16",
+        "deleted": 1
+    },
+    {
+        "id": 429709187,
+        "member_id": 56492792,
+        "website": "https://www.linkedin.com/company/lyft",
+        "created": "2019-11-15 09:58:17",
+        "last_updated": "2021-08-12 20:04:55",
+        "deleted": 1
+    },
+    {
+        "id": 429709188,
+        "member_id": 56492792,
+        "website": "https://www.linkedin.com/school/kellogg-school-of-management/",
+        "created": "2019-11-15 09:58:17",
+        "last_updated": "2021-08-12 20:04:55",
+        "deleted": 1
+    },
+    {
+        "id": 670708223,
+        "member_id": 56492792,
+        "website": "https://no.linkedin.com/company/lyft",
+        "created": "2021-08-16 16:21:26",
+        "last_updated": "2021-09-09 08:03:30",
+        "deleted": 1
+    },
+    {
+        "id": 670708224,
+        "member_id": 56492792,
+        "website": "https://no.linkedin.com/school/kellogg-school-of-management/",
+        "created": "2021-08-16 16:21:26",
+        "last_updated": "2021-09-09 08:03:30",
+        "deleted": 1
+    },
+    {
+        "id": 712617867,
+        "member_id": 56492792,
+        "website": "https://et.linkedin.com/company/lyft",
+        "created": "2021-09-09 08:03:31",
+        "last_updated": "2021-10-12 22:05:05",
+        "deleted": 1
+    },
+    {
+        "id": 712617868,
+        "member_id": 56492792,
+        "website": "https://et.linkedin.com/school/kellogg-school-of-management/",
+        "created": "2021-09-09 08:03:31",
+        "last_updated": "2021-10-12 22:05:05",
+        "deleted": 1
+    }
+]

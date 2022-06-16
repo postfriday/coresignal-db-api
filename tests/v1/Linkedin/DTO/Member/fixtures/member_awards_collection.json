@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1713531,
+        "member_id": 56492792,
+        "title": "CFO of the Year",
+        "issuer": null,
+        "description": "<p class=\"description\">Named CFO of the Year (public company category) by Proformative</p>",
+        "date": "2013",
+        "created": "2016-08-03 19:46:00",
+        "last_updated": "2017-06-04 19:34:57",
+        "deleted": 1
+    },
+    {
+        "id": 20145410,
+        "member_id": 56492792,
+        "title": "CFO of the Year",
+        "issuer": null,
+        "description": "Named CFO of the Year (public company category) by Proformative",
+        "date": "2013",
+        "created": "2017-06-04 19:34:57",
+        "last_updated": "2017-07-31 13:37:57",
+        "deleted": 1
+    },
+    {
+        "id": 25076981,
+        "member_id": 56492792,
+        "title": "CFO of the Year",
+        "issuer": null,
+        "description": "<p class=\"description\">Named CFO of the Year (public company category) by Proformative</p>",
+        "date": "2013",
+        "created": "2017-07-31 13:37:57",
+        "last_updated": "2018-04-10 05:24:15",
+        "deleted": 1
+    },
+    {
+        "id": 39796577,
+        "member_id": 56492792,
+        "title": "CFO of the Year",
+        "issuer": null,
+        "description": "<span class=\"show-more-less-text__sr-only-text\">Named CFO of the Year (public company category) by Proformative</span>",
+        "date": "2013",
+        "created": "2019-09-26 08:58:12",
+        "last_updated": "2019-11-15 09:58:16",
+        "deleted": 1
+    },
+    {
+        "id": 45018942,
+        "member_id": 56492792,
+        "title": "CFO of the Year",
+        "issuer": null,
+        "description": null,
+        "date": "2013",
+        "created": "2019-11-15 09:58:16",
+        "last_updated": "2020-10-12 15:43:46",
+        "deleted": 1
+    },
+    {
+        "id": 65825327,
+        "member_id": 56492792,
+        "title": "CFO of the Year",
+        "issuer": null,
+        "description": "<p class=\"show-more-less-text__text--less\">\n        Named CFO of the Year (public company category) by Proformative\n      </p>",
+        "date": "2013",
+        "created": "2020-10-12 15:43:46",
+        "last_updated": "2021-02-11 21:56:50",
+        "deleted": 1
+    },
+    {
+        "id": 78452638,
+        "member_id": 56492792,
+        "title": "CFO of the Year",
+        "issuer": "-",
+        "description": "<p class=\"show-more-less-text__text--less\">\n        Named CFO of the Year (public company category) by Proformative\n      </p>",
+        "date": "2013",
+        "created": "2021-02-11 21:56:50",
+        "last_updated": "2021-08-12 20:04:55",
+        "deleted": 1
+    },
+    {
+        "id": 85108440,
+        "member_id": 56492792,
+        "title": "CFO of the Year",
+        "issuer": "-",
+        "description": "Named CFO of the Year (public company category) by Proformative",
+        "date": "2013",
+        "created": "2021-08-12 20:04:55",
+        "last_updated": "2022-05-25 04:29:22",
+        "deleted": 0
+    }
+]

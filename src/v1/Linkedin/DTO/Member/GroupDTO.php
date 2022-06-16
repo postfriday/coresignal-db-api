@@ -9,13 +9,15 @@ use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
 
 #[Strict]
-class CourseSuggestionDTO extends DataTransferObject
+class GroupDTO extends DataTransferObject
 {
     public int $id;
 
     public int $member_id;
 
-    public int $course_suggestion_id;
+    public string $name;
+
+    public string $url;
 
     #[CastWith(CarbonCaster::class)]
     public Carbon $created;
@@ -24,6 +26,4 @@ class CourseSuggestionDTO extends DataTransferObject
     public Carbon $last_updated;
 
     public int $deleted;
-
-    public array $member_courses_suggestion_list;
 }

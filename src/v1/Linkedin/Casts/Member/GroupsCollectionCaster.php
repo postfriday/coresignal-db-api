@@ -1,12 +1,12 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\v1\Linkedin\Casts;
+namespace Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member;
 
-use Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member\AlsoViewedDTO;
+use Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member\GroupDTO;
 use Spatie\DataTransferObject\Caster;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
-class MemberAlsoViewedArrayCaster  implements Caster
+class GroupsCollectionCaster implements Caster
 {
     /**
      * @throws UnknownProperties
@@ -18,7 +18,7 @@ class MemberAlsoViewedArrayCaster  implements Caster
         }
 
         return array_map(
-            fn (array $data) => new AlsoViewedDTO(...$data),
+            fn (array $data) => new GroupDTO(...$data),
             $value
         );
     }
