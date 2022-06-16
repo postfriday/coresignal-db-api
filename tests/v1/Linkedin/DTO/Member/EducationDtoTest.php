@@ -10,7 +10,7 @@ use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 class EducationDtoTest extends TestCase
 {
     /** @test
-     * @dataProvider testCreateEducationDtoDataProvider
+     * @dataProvider createCreateEducationDtoDataProvider
      * @covers ::EducationDTO
      * @throws UnknownProperties
      */
@@ -30,7 +30,7 @@ class EducationDtoTest extends TestCase
     }
 
 
-    public function testCreateEducationDtoDataProvider(): array
+    public function createCreateEducationDtoDataProvider(): array
     {
         $list = json_decode(file_get_contents(__DIR__ . '/fixtures/education_collection.json'), true);
         return array_map(function($element){
