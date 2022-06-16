@@ -22,5 +22,4 @@ class WebsitesCollectionCaster implements Caster
             $value
         );
     }
-
 }
