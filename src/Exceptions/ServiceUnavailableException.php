@@ -2,7 +2,7 @@
 
 namespace Muscobytes\CoresignalDbApi\Exceptions;
 
-class CoresignalDbApiException
+class ServiceUnavailableException extends \Exception
 {
 
 }
