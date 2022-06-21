@@ -3,7 +3,7 @@
 namespace Tests;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member\AlsoViewedDTO;
+use Muscobytes\CoresignalDbApi\DTO\Member\AlsoViewedDTO;
 use PHPUnit\Framework\TestCase;
 
 class AlsoViewedDTOTest extends TestCase

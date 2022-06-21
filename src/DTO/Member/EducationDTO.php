@@ -1,15 +1,15 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member;
+namespace Muscobytes\CoresignalDbApi\DTO\Member;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\CarbonCaster;
+use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
 
 #[Strict]
-class ExperienceDTO extends DataTransferObject
+class EducationDTO extends DataTransferObject
 {
     public int $id;
 
@@ -17,17 +17,13 @@ class ExperienceDTO extends DataTransferObject
 
     public string $title;
 
-    public ?string $location;
+    public string $subtitle;
 
-    public string $company_name;
+    public string $date_from;
 
-    public ?string $company_url;
+    public string $date_to;
 
-    public ?string $date_from;
-
-    public ?string $date_to;
-
-    public ?string $duration;
+    public ?string $activities_and_societies;
 
     public ?string $description;
 
@@ -39,7 +35,5 @@ class ExperienceDTO extends DataTransferObject
 
     public int $deleted;
 
-    public ?string $order_in_profile;
-
-    public ?int $company_id;
+    public ?string $school_url;
 }

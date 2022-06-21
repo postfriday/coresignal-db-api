@@ -1,9 +1,9 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member;
+namespace Muscobytes\CoresignalDbApi\DTO\Member;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\CarbonCaster;
+use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;

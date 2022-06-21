@@ -1,12 +1,12 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member;
+namespace Muscobytes\CoresignalDbApi\Casts\Member;
 
-use Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member\WebsiteDTO;
+use Muscobytes\CoresignalDbApi\DTO\Member\PatentDTO;
 use Spatie\DataTransferObject\Caster;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
-class WebsitesCollectionCaster implements Caster
+class PatentsCollectionCaster implements Caster
 {
     /**
      * @throws UnknownProperties
@@ -14,11 +14,11 @@ class WebsitesCollectionCaster implements Caster
     public function cast(mixed $value): array
     {
         if (! is_array($value)) {
-            throw new \Exception("Can only cast arrays to Foo");
+            throw new \Exception("Can only cast arrays to PatentDTO");
         }
 
         return array_map(
-            fn (array $data) => new WebsiteDTO(...$data),
+            fn (array $data) => new PatentDTO(...$data),
             $value
         );
     }

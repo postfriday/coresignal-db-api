@@ -1,6 +1,6 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\v1\Linkedin\Casts;
+namespace Muscobytes\CoresignalDbApi\Casts;
 
 use Carbon\Carbon;
 use Spatie\DataTransferObject\Caster;

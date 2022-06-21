@@ -3,7 +3,7 @@
 namespace Tests;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member\PublicationDTO;
+use Muscobytes\CoresignalDbApi\DTO\Member\PublicationDTO;
 use PHPUnit\Framework\TestCase;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 

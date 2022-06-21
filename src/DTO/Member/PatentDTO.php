@@ -1,15 +1,16 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member;
+namespace Muscobytes\CoresignalDbApi\DTO\Member;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\CarbonCaster;
+use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
+use Muscobytes\CoresignalDbApi\DTO\Member\Patent\StatusDTO;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
 
 #[Strict]
-class EducationDTO extends DataTransferObject
+class PatentDTO extends DataTransferObject
 {
     public int $id;
 
@@ -17,15 +18,17 @@ class EducationDTO extends DataTransferObject
 
     public string $title;
 
-    public string $subtitle;
+    public int $status_id;
 
-    public string $date_from;
+    public ?string $inventors;
 
-    public string $date_to;
+    public ?string $date;
 
-    public ?string $activities_and_societies;
+    public string $url;
 
     public ?string $description;
+
+    public ?string $valid_area;
 
     #[CastWith(CarbonCaster::class)]
     public Carbon $created;
@@ -35,5 +38,5 @@ class EducationDTO extends DataTransferObject
 
     public int $deleted;
 
-    public ?string $school_url;
+    public StatusDTO $member_patent_status_list;
 }

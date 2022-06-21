@@ -4,7 +4,7 @@ namespace Tests;
 
 use Carbon\Carbon;
 use PHPUnit\Framework\TestCase;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member\CourseDTO;
+use Muscobytes\CoresignalDbApi\DTO\Member\CourseDTO;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
 class CourseDtoTest extends TestCase

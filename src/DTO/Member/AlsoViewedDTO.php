@@ -1,27 +1,25 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member;
+namespace Muscobytes\CoresignalDbApi\DTO\Member;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\CarbonCaster;
+use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
 
 #[Strict]
-class AwardDTO extends DataTransferObject
+class AlsoViewedDTO extends DataTransferObject
 {
     public int $id;
 
     public int $member_id;
 
+    public string $url;
+
     public ?string $title;
 
-    public ?string $issuer;
-
-    public ?string $description;
-
-    public string $date;
+    public ?string $location;
 
     #[CastWith(CarbonCaster::class)]
     public Carbon $created;

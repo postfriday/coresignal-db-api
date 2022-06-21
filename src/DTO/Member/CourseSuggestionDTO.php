@@ -1,21 +1,21 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\v1\Linkedin\DTO\Member;
+namespace Muscobytes\CoresignalDbApi\DTO\Member;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\CarbonCaster;
+use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
 
 #[Strict]
-class SimilarProfileDTO extends DataTransferObject
+class CourseSuggestionDTO extends DataTransferObject
 {
     public int $id;
 
     public int $member_id;
 
-    public string $url;
+    public int $course_suggestion_id;
 
     #[CastWith(CarbonCaster::class)]
     public Carbon $created;
@@ -24,4 +24,6 @@ class SimilarProfileDTO extends DataTransferObject
     public Carbon $last_updated;
 
     public int $deleted;
+
+    public array $member_courses_suggestion_list;
 }

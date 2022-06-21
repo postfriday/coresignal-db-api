@@ -1,18 +1,19 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\v1\Linkedin\DTO;
+namespace Muscobytes\CoresignalDbApi\DTO;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\CarbonCaster;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member\AlsoViewedCollectionCaster;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member\AwardsCollectionCaster;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member\CoursesCollectionCaster;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member\EducationCollectionCaster;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member\ExperienceCollectionCaster;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member\GroupsCollectionCaster;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member\PublicationsCollectionCaster;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member\SimilarProfilesCollectionCaster;
-use Muscobytes\CoresignalDbApi\v1\Linkedin\Casts\Member\WebsitesCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\AlsoViewedCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\AwardsCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\CoursesCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\EducationCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\ExperienceCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\GroupsCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\PatentsCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\PublicationsCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\SimilarProfilesCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Member\WebsitesCollectionCaster;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
@@ -123,6 +124,7 @@ class MemberDTO extends DataTransferObject
 
     public array $member_organizations_collection;
 
+    #[CastWith(PatentsCollectionCaster::class)]
     public array $member_patents_collection;
 
     public array $member_posts_see_more_urls_collection;
