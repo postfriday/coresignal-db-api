@@ -13,3 +13,5 @@ test:
 	${DOCKER} ./vendor/bin/phpunit tests
 install:
 	${DOCKER} composer install
+update:
+	${DOCKER} composer update
