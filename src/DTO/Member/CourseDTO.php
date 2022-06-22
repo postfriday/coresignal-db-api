@@ -13,15 +13,17 @@ class CourseDTO extends DataTransferObject
 {
     public int $id;
 
-    public string $name;
+    public string $member_id;
 
-    public string $hash;
+    public ?string $position;
 
-    public string $url;
+    public string $courses;
 
     #[CastWith(CarbonCaster::class)]
     public ?Carbon $created;
 
     #[CastWith(CarbonCaster::class)]
     public Carbon $last_updated;
+
+    public int $deleted;
 }

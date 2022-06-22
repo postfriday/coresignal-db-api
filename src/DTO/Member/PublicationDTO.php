@@ -25,7 +25,7 @@ class PublicationDTO extends DataTransferObject
 
     public ?string $authors;
 
-    public string $url;
+    public ?string $url;
 
     #[CastWith(CarbonCaster::class)]
     public Carbon $created;

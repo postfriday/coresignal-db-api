@@ -15,7 +15,7 @@ class ExperienceDTO extends DataTransferObject
 
     public int $member_id;
 
-    public string $title;
+    public ?string $title;
 
     public ?string $location;
 

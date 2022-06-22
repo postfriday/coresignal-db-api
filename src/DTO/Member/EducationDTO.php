@@ -15,13 +15,13 @@ class EducationDTO extends DataTransferObject
 
     public int $member_id;
 
-    public string $title;
+    public ?string $title;
 
-    public string $subtitle;
+    public ?string $subtitle;
 
-    public string $date_from;
+    public ?string $date_from;
 
-    public string $date_to;
+    public ?string $date_to;
 
     public ?string $activities_and_societies;
 
