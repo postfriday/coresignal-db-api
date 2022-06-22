@@ -4,7 +4,7 @@ namespace Muscobytes\CoresignalDbApi\DTO;
 
 use Carbon\Carbon;
 use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
-use Muscobytes\CoresignalDbApi\Casts\Member\AlsoViewedCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\AlsoViewedCollectionCaster;
 use Muscobytes\CoresignalDbApi\Casts\Member\AwardsCollectionCaster;
 use Muscobytes\CoresignalDbApi\Casts\Member\CoursesCollectionCaster;
 use Muscobytes\CoresignalDbApi\Casts\Member\EducationCollectionCaster;
@@ -18,7 +18,7 @@ use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
 
-#[Strict]
+    #[Strict]
 class MemberDTO extends DataTransferObject
 {
     /*
@@ -51,7 +51,7 @@ class MemberDTO extends DataTransferObject
     /*
      * Member's industry as input by the member on Linkedin (not directly related to any particular work experience).
      */
-    public string $industry;
+    public ?string $industry;
 
     /*
      * Text in member’s profile summary field.

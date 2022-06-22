@@ -3,7 +3,7 @@
 namespace Tests;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\DTO\Member\AlsoViewedDTO;
+use Muscobytes\CoresignalDbApi\DTO\AlsoViewedDTO;
 use Muscobytes\CoresignalDbApi\DTO\Member\AwardDTO;
 use Muscobytes\CoresignalDbApi\DTO\Member\CourseDTO;
 use Muscobytes\CoresignalDbApi\DTO\Member\EducationDTO;
