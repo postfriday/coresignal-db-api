@@ -1,3 +1,137 @@
 [
-
+    {
+        "id": 41290848,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "American Heritage",
+        "created": "2019-06-12 19:35:25",
+        "last_updated": "2019-12-15 08:22:26",
+        "deleted": 1
+    },
+    {
+        "id": 41290850,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Biotechnology",
+        "created": "2019-06-12 19:35:25",
+        "last_updated": "2019-12-15 08:22:26",
+        "deleted": 1
+    },
+    {
+        "id": 41290852,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Career Prep",
+        "created": "2019-06-12 19:35:25",
+        "last_updated": "2019-12-15 08:22:26",
+        "deleted": 1
+    },
+    {
+        "id": 41290854,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Executive Lecture Series",
+        "created": "2019-06-12 19:35:25",
+        "last_updated": "2019-12-15 08:22:26",
+        "deleted": 1
+    },
+    {
+        "id": 41290856,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Survey of International Business",
+        "created": "2019-06-12 19:35:25",
+        "last_updated": "2021-06-19 06:34:37",
+        "deleted": 1
+    },
+    {
+        "id": 89827850,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Digital Marketing",
+        "created": "2019-12-15 08:22:27",
+        "last_updated": "2021-06-19 06:34:37",
+        "deleted": 1
+    },
+    {
+        "id": 89827851,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "International Marketing",
+        "created": "2019-12-15 08:22:27",
+        "last_updated": "2021-06-19 06:34:37",
+        "deleted": 1
+    },
+    {
+        "id": 89827852,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Marketing With Social Media",
+        "created": "2019-12-15 08:22:27",
+        "last_updated": "2021-06-19 06:34:37",
+        "deleted": 1
+    },
+    {
+        "id": 89827853,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Principles of Marketing",
+        "created": "2019-12-15 08:22:27",
+        "last_updated": "2021-06-19 06:34:37",
+        "deleted": 1
+    },
+    {
+        "id": 89827854,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Supervision in Technology",
+        "created": "2019-12-15 08:22:27",
+        "last_updated": "2021-06-19 06:34:37",
+        "deleted": 1
+    },
+    {
+        "id": 153867255,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Business Strategy and Implementation;-",
+        "created": "2021-06-19 06:34:37",
+        "last_updated": "2022-02-18 12:36:23",
+        "deleted": 0
+    },
+    {
+        "id": 153867256,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Digital Marketing;-",
+        "created": "2021-06-19 06:34:37",
+        "last_updated": "2022-02-18 12:36:23",
+        "deleted": 0
+    },
+    {
+        "id": 153867257,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "International Marketing;-",
+        "created": "2021-06-19 06:34:37",
+        "last_updated": "2022-02-18 12:36:23",
+        "deleted": 0
+    },
+    {
+        "id": 153867258,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Marketing With Social Media;-",
+        "created": "2021-06-19 06:34:37",
+        "last_updated": "2022-02-18 12:36:23",
+        "deleted": 0
+    },
+    {
+        "id": 153867259,
+        "member_id": 414675960,
+        "position": null,
+        "courses": "Principles of Marketing;-",
+        "created": "2021-06-19 06:34:38",
+        "last_updated": "2022-02-18 12:36:23",
+        "deleted": 0
+    }
 ]
