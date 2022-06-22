@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Muscobytes\CoresignalDbApi\Tests\DTO\Company;
 
 use Carbon\Carbon;
 use Muscobytes\CoresignalDbApi\DTO\Company\SpecialtiesDTO;

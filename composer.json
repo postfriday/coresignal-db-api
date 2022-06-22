@@ -16,7 +16,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Muscobytes\\CoresignalDbApi\\": "src/"
+            "Muscobytes\\CoresignalDbApi\\": "src/",
+            "Muscobytes\\CoresignalDbApi\\Tests\\": "tests/"
         }
     },
     "authors": [
