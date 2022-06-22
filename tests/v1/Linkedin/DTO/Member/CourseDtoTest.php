@@ -19,11 +19,12 @@ class CourseDtoTest extends TestCase
         $dto = new CourseDTO($attributes);
 
         $this->assertEquals($attributes['id'], $dto->id);
-        $this->assertEquals($attributes['name'], $dto->name);
-        if ($attributes['created'] !== null) {
-            $this->assertEquals(Carbon::make($attributes['created'])->getTimestamp(), $list[0]->created->getTimestamp());
-        }
-        $this->assertEquals(Carbon::make($attributes['last_updated'])->getTimestamp(), $list[0]->last_updated->getTimestamp());
+        $this->assertEquals($attributes['member_id'], $dto->member_id);
+        $this->assertEquals($attributes['position'], $dto->position);
+        $this->assertEquals($attributes['courses'], $dto->courses);
+        $this->assertEquals(Carbon::make($attributes['created'])->getTimestamp(), $dto->created->getTimestamp());
+        $this->assertEquals(Carbon::make($attributes['last_updated'])->getTimestamp(), $dto->last_updated->getTimestamp());
+        $this->assertEquals($attributes['deleted'], $dto->deleted);
     }
 
 
