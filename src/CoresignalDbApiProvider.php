@@ -10,16 +10,21 @@ use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\Authentication;
 use Http\Message\Authentication\Bearer;
+use Muscobytes\CoresignalDbApi\DTO\CompanyDTO;
+use Muscobytes\CoresignalDbApi\DTO\MemberDTO;
 use Muscobytes\CoresignalDbApi\Exceptions\ClientException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServerErrorException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServiceUnavailableException;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Log\LoggerAwareTrait;
+use Psr\Log\LoggerInterface;
 
 class CoresignalDbApiProvider
 {
+    use LoggerAwareTrait;
+
     const BASE_URI = 'https://api.coresignal.com/dbapi';
 
     private ClientInterface $client;
@@ -35,43 +40,17 @@ class CoresignalDbApiProvider
         'Content-Type' => 'application/json',
     ];
 
-    public const METHOD_GET = 'GET';
-
-    public const METHOD_POST = 'POST';
-
-    const ENDPOINT_MEMBER_COLLECT_BY_ID = 0;
-    const ENDPOINT_MEMBER_COLLECT_BY_SHORTHAND_NAME = 1;
-    const ENDPOINT_MEMBER_SEARCH_FILTER = 2;
-    const ENDPOINT_MEMBER_SEARCH_ES_DSL = 3;
-    const ENDPOINT_COMPANY_COLLECT_BY_ID = 4;
-    const ENDPOINT_COMPANY_COLLECT_BY_SHORTHAND_NAME = 5;
-    const ENDPOINT_COMPANY_SEARCH_FILTER = 6;
-    const ENDPOINT_COMPANY_SEARCH_ES_DSL = 7;
-    const ENDPOINT_JOB_SEARCH_FILTER = 8;
-    const ENDPOINT_JOB_COLLECT_BY_ID = 9;
-
-    protected array $endpoints = [
-        0 => ['method' => self::METHOD_GET,  'uri' => '/v1/linkedin/member/collect'],
-        1 => ['method' => self::METHOD_GET,  'uri' => '/v1/linkedin/member/collect'],
-        2 => ['method' => self::METHOD_POST, 'uri' => '/v1/linkedin/member/search/filter'],
-        3 => ['method' => self::METHOD_POST, 'uri' => '/v1/linkedin/member/search/es_dsl'],
-        4 => ['method' => self::METHOD_GET,  'uri' => '/v1/linkedin/company/collect'],
-        5 => ['method' => self::METHOD_GET,  'uri' => '/v1/linkedin/company/collect'],
-        6 => ['method' => self::METHOD_POST, 'uri' => '/v1/linkedin/company/search/filter'],
-        7 => ['method' => self::METHOD_POST, 'uri' => '/v1/linkedin/company/search/es_dsl'],
-        8 => ['method' => self::METHOD_POST,  'uri' => '/v1/linkedin/job/search/filter'],
-        9 => ['method' => self::METHOD_GET,  'uri' => '/v1/linkedin/job/collect']
-    ];
-
 
     public function __construct(
         string $apikey,
+        LoggerInterface $logger = null,
         ClientInterface $client = null,
         RequestFactoryInterface $requestFactory = null,
         StreamFactoryInterface $streamFactory = null
     )
     {
         $this->authentication = new Bearer($apikey);
+        $this->logger = $logger;
         $this->client = $client ?: HttpClientDiscovery::find();
         $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
         $this->streamFactory = $streamFactory ?: Psr17FactoryDiscovery::findStreamFactory();
@@ -80,10 +59,17 @@ class CoresignalDbApiProvider
 
     public function request(
         string $method,
-        string $uri,
+        string $endpointUrl,
         array $payload = []
-    ): ResponseInterface
+    ): array
     {
+        $uri = self::BASE_URI . $endpointUrl;
+
+        $this->logger->debug('CoreSignalDbApi->request()', [
+            'method' => $method,
+            'uri' => $uri,
+            'payload' => $payload
+        ]);
         $request = $this->requestFactory->createRequest($method, $uri);
         $request = $this->authentication->authenticate($request);
 
@@ -99,137 +85,116 @@ class CoresignalDbApiProvider
         }
 
         $response = $this->client->sendRequest($request);
+
         $statusCode = $response->getStatusCode();
 
         if ($statusCode > 500) {
+            $reason = $response->getReasonPhrase();
+            $this->logger->error('ServiceUnavailableException: ' . $statusCode . ' ' . $reason);
             throw new ServiceUnavailableException();
         }
 
         if ($statusCode === 500) {
-            throw new ServerErrorException();
+            $reason = $response->getReasonPhrase();
+            $this->logger->error('ServerErrorException: ' . $statusCode . ' ' . $reason);
+            throw new ServerErrorException($reason, $statusCode);
         }
 
         if ($statusCode >= 400) {
-            throw new ClientException($response->getReasonPhrase(), $statusCode);
-        }
-        return $response;
-    }
-
-
-    protected function getEndpointUri(int $endpointId, int $resourceId = 0): string
-    {
-        if (!in_array($endpointId, array_keys($this->endpoints))) {
-            throw new ClientException('Endpoint not exists', 100);
+            $reason = $response->getReasonPhrase();
+            $this->logger->error('ClientException: ' . $statusCode . ' ' . $reason);
+            throw new ClientException($reason, $statusCode);
         }
 
-        $uri = self::BASE_URI . $this->endpoints[$endpointId]['uri'];
-        if ($resourceId > 0) {
-            $uri .= '/' . $resourceId;
-        }
-        return $uri;
+        $contents = json_decode($response->getBody()->getContents(), true);
+        $this->logger->debug('Response contents:', $contents);
+        return $contents;
     }
 
 
-    protected function getEndpointMethod(int $endpointId): string
+    public function memberCollectBy(string $value): MemberDTO
     {
-        if (!in_array($endpointId, array_keys($this->endpoints))) {
-            throw new ClientException('Endpoint not exists', 100);
-        }
-        return $this->endpoints[$endpointId]['method'];
+        return new MemberDTO($this->request('GET', '/v1/linkedin/member/collect/' . $value));
     }
 
 
-    public function memberCollectById(string $id): ResponseInterface
+    public function memberCollectById(string $memberId): MemberDTO
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_MEMBER_COLLECT_BY_ID),
-            $this->getEndpointUri(self::ENDPOINT_MEMBER_COLLECT_BY_ID, $id)
-        );
+        return $this->memberCollectBy($memberId);
     }
 
 
-    public function memberCollectByShorthandName(string $shorthandName): ResponseInterface
+    public function memberCollectByShorthandName(string $shorthandName): MemberDTO
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_MEMBER_COLLECT_BY_SHORTHAND_NAME),
-            $this->getEndpointUri(self::ENDPOINT_MEMBER_COLLECT_BY_SHORTHAND_NAME, $shorthandName)
-        );
+        return $this->memberCollectBy($shorthandName);
     }
 
 
-    public function memberSearchFilter(MemberSearchFilter $filter): ResponseInterface
+    public function memberSearchFilter(MemberSearchFilter $filter): array
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_MEMBER_SEARCH_FILTER),
-            $this->getEndpointUri(self::ENDPOINT_MEMBER_SEARCH_FILTER),
-            $filter->getFilters()
-        );
+        return $this->request('POST', '/v1/linkedin/member/search/filter', $filter->getFilters());
     }
 
 
-    public function memberSearchEsdsl(ElasticsearchQuery $query): ResponseInterface
+    public function memberSearchEsdsl(ElasticsearchQuery $query): array
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_MEMBER_SEARCH_FILTER),
-            $this->getEndpointUri(self::ENDPOINT_MEMBER_SEARCH_FILTER),
-            ['query' => $query->toString()]
-        );
+        return $this->request('POST', '/v1/linkedin/member/search/es_dsl', [
+            'query' => $query->toString()
+        ]);
     }
 
 
-    public function companyCollectById(string $id): ResponseInterface
+    public function companyCollectBy(string $value): CompanyDTO
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_MEMBER_COLLECT_BY_ID),
-            $this->getEndpointUri(self::ENDPOINT_MEMBER_COLLECT_BY_ID, $id)
-        );
+        return new CompanyDTO($this->request('GET', '/v1/linkedin/company/collect/' . $value));
     }
 
 
-    public function companyCollectByShorthandName(string $shorthandName): ResponseInterface
+    public function companyCollectById(string $companyId): CompanyDTO
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_COMPANY_COLLECT_BY_SHORTHAND_NAME),
-            $this->getEndpointUri(self::ENDPOINT_COMPANY_COLLECT_BY_SHORTHAND_NAME, $shorthandName)
-        );
+        return $this->companyCollectBy($companyId);
     }
 
 
-    public function companySearchFilter(CompanySearchFilter $filter): ResponseInterface
+    public function companyCollectByShorthandName(string $shorthandName): CompanyDTO
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_COMPANY_SEARCH_FILTER),
-            $this->getEndpointUri(self::ENDPOINT_COMPANY_SEARCH_FILTER),
-            $filter->getFilters()
-        );
+        return $this->companyCollectBy($shorthandName);
     }
 
 
-    public function companySearchEsdsl(ElasticsearchQuery $query): ResponseInterface
+    public function companySearchFilter(CompanySearchFilter $filter): array
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_COMPANY_SEARCH_ES_DSL),
-            $this->getEndpointUri(self::ENDPOINT_COMPANY_SEARCH_ES_DSL),
-            ['query' => $query->toString()]
-        );
+        return $this->request('POST', '/v1/linkedin/company/search/filter', $filter->getFilters());
     }
 
 
-    public function jobCollectById(string $id): ResponseInterface
+    public function companySearchEsdsl(ElasticsearchQuery $query): array
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_JOB_COLLECT_BY_ID),
-            $this->getEndpointUri(self::ENDPOINT_JOB_COLLECT_BY_ID, $id)
-        );
+        return $this->request('POST', '/v1/linkedin/company/search/es_dsl', [
+            'query' => $query->toString()
+            ]);
     }
 
 
-    public function jobSearchFilter(JobSearchFilter $filter): ResponseInterface
+    public function jobCollectBy(string $value): array
     {
-        return $this->request(
-            $this->getEndpointMethod(self::ENDPOINT_JOB_SEARCH_FILTER),
-            $this->getEndpointUri(self::ENDPOINT_JOB_SEARCH_FILTER),
-            $filter->getFilters()
-        );
+        return $this->request('GET', '/v1/linkedin/job/collect/' . $value);
+    }
+
+
+    public function jobCollectById(string $id): array
+    {
+        return $this->jobCollectBy($id);
+    }
+
+    public function jobSearchFilter(JobSearchFilter $filter): array
+    {
+        return $this->request('POST', '/v1/linkedin/job/search/filter', $filter->getFilters());
+    }
+
+
+    public function companySearchFilterBy(string $filterName, string $filterValue): array
+    {
+        return $this->companySearchFilter(new CompanySearchFilter([$filterName => $filterValue]));
     }
 }

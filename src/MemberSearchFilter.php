@@ -40,10 +40,8 @@ class MemberSearchFilter
     ];
 
 
-    public function __construct(string $filterName = null, string $filterValue = null)
+    public function __construct(array $filters = null)
     {
-        if ($filterName) {
-            $this->setFilter([$filterName, $filterValue]);
-        }
+        $this->setFilter($filters);
     }
 }
