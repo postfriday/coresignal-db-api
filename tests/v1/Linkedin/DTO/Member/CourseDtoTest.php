@@ -17,7 +17,6 @@ class CourseDtoTest extends TestCase
     public function createCourseDtoTest($attributes)
     {
         $dto = new CourseDTO($attributes);
-
         $this->assertEquals($attributes['id'], $dto->id);
         $this->assertEquals($attributes['member_id'], $dto->member_id);
         $this->assertEquals($attributes['position'], $dto->position);

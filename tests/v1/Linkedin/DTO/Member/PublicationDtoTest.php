@@ -17,7 +17,6 @@ class PublicationDtoTest extends TestCase
     public function createPublicationDtoTest($attributes)
     {
         $dto = new PublicationDTO($attributes);
-
         $this->assertEquals($attributes['id'], $dto->id);
         $this->assertEquals($attributes['member_id'], $dto->member_id);
         $this->assertEquals($attributes['title'], $dto->title);

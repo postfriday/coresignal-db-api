@@ -5,6 +5,7 @@ namespace Muscobytes\CoresignalDbApi\DTO;
 use Carbon\Carbon;
 use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
 use Muscobytes\CoresignalDbApi\Casts\AlsoViewedCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Company\SpecialtiesCollectionCaster;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
@@ -99,6 +100,7 @@ class CompanyDTO extends DataTransferObject
 
     public array $company_similar_collection;
 
+    #[CastWith(SpecialtiesCollectionCaster::class)]
     public array $company_specialties_collection;
 
     public array $company_stock_info_collection;
