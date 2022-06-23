@@ -4,8 +4,11 @@ namespace Muscobytes\CoresignalDbApi\DTO;
 
 use Carbon\Carbon;
 use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
-use Muscobytes\CoresignalDbApi\Casts\AlsoViewedCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Company\FeaturedEmployeeCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Company\LocationCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Company\SimilarCollectionCaster;
 use Muscobytes\CoresignalDbApi\Casts\Company\SpecialtiesCollectionCaster;
+use Muscobytes\CoresignalDbApi\Casts\Company\AlsoViewedCollectionCaster;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
@@ -90,14 +93,17 @@ class CompanyDTO extends DataTransferObject
 
     public array $company_crunchbase_info_collection;
 
+    #[CastWith(FeaturedEmployeeCollectionCaster::class)]
     public array $company_featured_employees_collection;
 
     public array $company_featured_investors_collection;
 
     public array $company_funding_rounds_collection;
 
+    #[CastWith(LocationCollectionCaster::class)]
     public array $company_locations_collection;
 
+    #[CastWith(SimilarCollectionCaster::class)]
     public array $company_similar_collection;
 
     #[CastWith(SpecialtiesCollectionCaster::class)]
