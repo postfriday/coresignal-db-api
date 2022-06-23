@@ -1,392 +1,394 @@
-{
-    "id": 7960749,
-    "url": "https://www.linkedin.com/company/produits-alba",
-    "hash": "806dc7770644db8b608151c905f24d4f",
-    "name": "Produits Alba",
-    "website": "http://www.alba.com",
-    "size": "51-200 employees",
-    "industry": "Building Materials",
-    "description": "Depuis plus de 50 ans, Produits Alba inc. fabrique des briques, des pierres et des blocs architecturaux qui ont contribué à façonner les paysages nord-américains. Cette gamme de produits est fabriquée de calcite pure. La calcite, que certains qualifient de «MARBRE BLANC», détient des propriétés mécaniques exceptionnelles : solidité, durabilité, et résistance supérieure à la traction et aux infiltrations, en plus de posséder une apparence qui allie lumière, éclat distinctif et beauté.\n\nProduits Alba inc. fabrique aussi de formidables revêtements colorés : l’utilisation de multiples pigments permet de donner naissance à une vaste gamme de couleurs. Avec la minutie de l’artisan, les spécialistes de Produits Alba inc. cultivent l’art du travail bien fait ainsi que le souci constant de précéder les tendances des marchés. Il s’agit de l’essence même de la mission de l’entreprise.",
-    "followers": 37,
-    "founded": 1961,
-    "headquarters_city": null,
-    "headquarters_country": null,
-    "headquarters_state": null,
-    "headquarters_street1": null,
-    "headquarters_street2": null,
-    "headquarters_zip": null,
-    "logo_url": "https://media-exp1.licdn.com/dms/image/C560BAQHOeC0USYtL4g/company-logo_200_200/0/1519869057540?e=2147483647&v=beta&t=oasRjwFqAeAEHTbCJRijMQun6pVXSSDj4-GdYpu0YQM",
-    "created": "2016-06-25 02:31:50",
-    "last_updated": "2022-05-14 19:10:01",
-    "last_response_code": 200,
-    "type": "Sole Proprietorship",
-    "headquarters_new_address": "La Baie, Qc",
-    "employees_count": 3,
-    "headquarters_country_restored": "Canada",
-    "headquarters_country_parsed": "Canada",
-    "company_shorthand_name": "produits-alba",
-    "company_shorthand_name_hash": "f66a29d22082e44e4f93dbdb9e28248b",
-    "canonical_url": "https://ca.linkedin.com/company/produits-alba",
-    "canonical_hash": "81a2ddc6954ababb976db71addde5f71",
-    "canonical_shorthand_name": "produits-alba",
-    "canonical_shorthand_name_hash": "f66a29d22082e44e4f93dbdb9e28248b",
-    "deleted": 0,
-    "last_updated_ux": 1652555400,
-    "source_id": 335450,
-    "company_affiliated_collection": [],
-    "company_also_viewed_collection": [
-        {
-            "id": 30015844,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/msl-fibre",
-            "viewed_company_id": null,
-            "created": "2016-06-25 02:31:50",
-            "last_updated": "2016-12-14 11:51:56",
-            "deleted": 1
-        },
-        {
-            "id": 30015845,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/stim-",
-            "viewed_company_id": null,
-            "created": "2016-06-25 02:31:50",
-            "last_updated": "2016-12-14 11:51:56",
-            "deleted": 1
-        },
-        {
-            "id": 30015846,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/dramis-international",
-            "viewed_company_id": null,
-            "created": "2016-06-25 02:31:50",
-            "last_updated": "2016-12-14 11:51:56",
-            "deleted": 1
-        },
-        {
-            "id": 30015847,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/nrc-industries",
-            "viewed_company_id": null,
-            "created": "2016-06-25 02:31:50",
-            "last_updated": "2016-12-14 11:51:56",
-            "deleted": 1
-        },
-        {
-            "id": 30015848,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/l&s-cranberry-canneberges-l&s",
-            "viewed_company_id": null,
-            "created": "2016-06-25 02:31:50",
-            "last_updated": "2016-12-14 11:51:56",
-            "deleted": 1
-        },
-        {
-            "id": 30015849,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/stedfast-inc-",
-            "viewed_company_id": null,
-            "created": "2016-06-25 02:31:50",
-            "last_updated": "2016-12-14 11:51:56",
-            "deleted": 1
-        },
-        {
-            "id": 52664843,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/theka-industries-adex-akrilon-adexmat-adex-intl",
-            "viewed_company_id": null,
-            "created": "2016-12-14 11:51:56",
-            "last_updated": "2017-11-02 07:40:00",
-            "deleted": 1
-        },
-        {
-            "id": 52664844,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/p-h--tech",
-            "viewed_company_id": null,
-            "created": "2016-12-14 11:51:56",
-            "last_updated": "2017-08-12 08:05:14",
-            "deleted": 1
-        },
-        {
-            "id": 52664845,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/systeme-huntingdon-inc--formerly-folia-industries",
-            "viewed_company_id": null,
-            "created": "2016-12-14 11:51:56",
-            "last_updated": "2017-08-12 08:05:14",
-            "deleted": 1
-        },
-        {
-            "id": 52664846,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/cuisine-id-ale",
-            "viewed_company_id": null,
-            "created": "2016-12-14 11:51:56",
-            "last_updated": "2017-11-02 07:40:00",
-            "deleted": 1
-        },
-        {
-            "id": 52664847,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/beto-bloc",
-            "viewed_company_id": null,
-            "created": "2016-12-14 11:51:56",
-            "last_updated": "2017-08-12 08:05:14",
-            "deleted": 1
-        },
-        {
-            "id": 52664848,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/groupe-isolofoam",
-            "viewed_company_id": null,
-            "created": "2016-12-14 11:51:56",
-            "last_updated": "2017-02-04 11:12:38",
-            "deleted": 1
-        },
-        {
-            "id": 78816521,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/pro-garage-armor-flooring",
-            "viewed_company_id": null,
-            "created": "2017-02-04 11:12:38",
-            "last_updated": "2017-11-02 07:40:00",
-            "deleted": 1
-        },
-        {
-            "id": 101554567,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/freud-canada-inc",
-            "viewed_company_id": null,
-            "created": "2017-08-12 08:05:14",
-            "last_updated": "2017-11-02 07:40:00",
-            "deleted": 1
-        },
-        {
-            "id": 101554568,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/satin-finish-hardwood-flooring",
-            "viewed_company_id": null,
-            "created": "2017-08-12 08:05:14",
-            "last_updated": "2017-11-02 07:40:00",
-            "deleted": 1
-        },
-        {
-            "id": 101554569,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/owl-distribution-inc-",
-            "viewed_company_id": null,
-            "created": "2017-08-12 08:05:14",
-            "last_updated": "2017-11-02 07:40:00",
-            "deleted": 1
-        },
-        {
-            "id": 115188623,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/elite-boutique-events-catering-services",
-            "viewed_company_id": null,
-            "created": "2017-11-02 07:39:59",
-            "last_updated": "2019-05-28 05:09:42",
-            "deleted": 1
-        },
-        {
-            "id": 115188624,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/housing-dynasty-pvt-ltd",
-            "viewed_company_id": null,
-            "created": "2017-11-02 07:39:59",
-            "last_updated": "2019-05-28 05:09:42",
-            "deleted": 1
-        },
-        {
-            "id": 115188625,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/dubazon",
-            "viewed_company_id": null,
-            "created": "2017-11-02 07:39:59",
-            "last_updated": "2018-03-13 00:55:53",
-            "deleted": 1
-        },
-        {
-            "id": 115188626,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/noble-hospitals-private-limited",
-            "viewed_company_id": null,
-            "created": "2017-11-02 07:39:59",
-            "last_updated": "2019-05-28 05:09:42",
-            "deleted": 1
-        },
-        {
-            "id": 115188627,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/ch%C5%8Dsen-experiences",
-            "viewed_company_id": null,
-            "created": "2017-11-02 07:39:59",
-            "last_updated": "2018-03-13 00:55:53",
-            "deleted": 1
-        },
-        {
-            "id": 115188628,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/property-universe-real-estate-l-l-c",
-            "viewed_company_id": null,
-            "created": "2017-11-02 07:39:59",
-            "last_updated": "2018-07-26 21:35:15",
-            "deleted": 1
-        },
-        {
-            "id": 135590654,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/albatross-shipping",
-            "viewed_company_id": null,
-            "created": "2018-03-13 00:55:53",
-            "last_updated": "2019-05-28 05:09:42",
-            "deleted": 1
-        },
-        {
-            "id": 135590655,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/parfait-patisserie",
-            "viewed_company_id": null,
-            "created": "2018-03-13 00:55:53",
-            "last_updated": "2018-08-15 16:43:06",
-            "deleted": 1
-        },
-        {
-            "id": 146657641,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/serve-plus",
-            "viewed_company_id": null,
-            "created": "2018-07-26 21:35:15",
-            "last_updated": "2018-09-29 06:36:09",
-            "deleted": 1
-        },
-        {
-            "id": 154796014,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/property-universe-real-estate-l-l-c",
-            "viewed_company_id": null,
-            "created": "2018-08-15 16:43:06",
-            "last_updated": "2018-08-29 05:28:20",
-            "deleted": 1
-        },
-        {
-            "id": 156683433,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/parfait-patisserie",
-            "viewed_company_id": null,
-            "created": "2018-08-29 05:28:20",
-            "last_updated": "2019-05-28 05:09:42",
-            "deleted": 1
-        },
-        {
-            "id": 162989673,
-            "company_id": 7960749,
-            "viewed_company_url": "https://www.linkedin.com/company/property-universe-real-estate-l-l-c",
-            "viewed_company_id": null,
-            "created": "2018-09-29 06:36:09",
-            "last_updated": "2019-05-28 05:09:42",
-            "deleted": 1
-        }
-    ],
-    "company_crunchbase_info_collection": [],
-    "company_featured_employees_collection": [
-        {
-            "id": 20346810,
-            "company_id": 7960749,
-            "url": "https://www.linkedin.com/in/denis-roy-48437023",
-            "created": "2019-11-06 04:48:43",
-            "last_updated": "2020-02-04 09:01:53",
-            "deleted": 1
-        },
-        {
-            "id": 20346811,
-            "company_id": 7960749,
-            "url": "https://www.linkedin.com/in/jane-doe-ab213529",
-            "created": "2019-11-06 04:48:43",
-            "last_updated": "2020-02-04 09:01:53",
-            "deleted": 1
-        },
-        {
-            "id": 20346812,
-            "company_id": 7960749,
-            "url": "https://www.linkedin.com/in/julie-cloutier-1b700834",
-            "created": "2019-11-06 04:48:43",
-            "last_updated": "2022-05-14 19:10:00",
-            "deleted": 0
-        },
-        {
-            "id": 20346813,
-            "company_id": 7960749,
-            "url": "https://www.linkedin.com/in/kim-miller-38639465",
-            "created": "2019-11-06 04:48:43",
-            "last_updated": "2020-02-04 09:01:53",
-            "deleted": 1
-        }
-    ],
-    "company_featured_investors_collection": [],
-    "company_funding_rounds_collection": [],
-    "company_locations_collection": [
-        {
-            "id": 8622847,
-            "company_id": 7960749,
-            "location_address": "300 Grande-Baie Nord; La Baie, Qc G7B3K3, CA",
-            "is_primary": 1,
-            "created": "2019-11-06 04:48:43",
-            "last_updated": "2022-05-14 19:10:00",
-            "deleted": 0
-        }
-    ],
-    "company_similar_collection": [
-        {
-            "id": 259460697,
-            "company_id": 7960749,
-            "url": "https://www.linkedin.com/company/les-ferrailleurs-du-qu%C3%A9bec-inc-",
-            "created": "2020-10-31 14:12:59",
-            "last_updated": "2021-06-26 01:48:15",
-            "deleted": 1
-        },
-        {
-            "id": 259460698,
-            "company_id": 7960749,
-            "url": "https://www.linkedin.com/company/fraser-health-authority",
-            "created": "2020-10-31 14:12:59",
-            "last_updated": "2020-12-20 07:22:25",
-            "deleted": 1
-        },
-        {
-            "id": 338084764,
-            "company_id": 7960749,
-            "url": "https://ca.linkedin.com/company/fraser-health-authority",
-            "created": "2020-12-20 07:22:25",
-            "last_updated": "2021-06-26 01:48:15",
-            "deleted": 1
-        },
-        {
-            "id": 493966783,
-            "company_id": 7960749,
-            "url": "https://www.linkedin.com/company/les-ferrailleurs-du-qu%C3%A9bec-inc-",
-            "created": "2021-09-12 20:51:15",
-            "last_updated": "2022-03-01 16:18:32",
-            "deleted": 1
-        },
-        {
-            "id": 493966784,
-            "company_id": 7960749,
-            "url": "https://ca.linkedin.com/company/fraser-health-authority",
-            "created": "2021-09-12 20:51:15",
-            "last_updated": "2022-03-01 16:18:32",
-            "deleted": 1
-        }
-    ],
-    "company_specialties_collection": [
-        {
-            "id": 11279743,
-            "company_id": 7960749,
-            "specialty": "Calcite pure",
-            "created": "2016-06-25 02:31:50",
-            "last_updated": "2022-05-14 19:10:00",
-            "deleted": 0
-        }
-    ],
-    "company_stock_info_collection": []
-}
+[
+    {
+        "id": 7960749,
+        "url": "https://www.linkedin.com/company/produits-alba",
+        "hash": "806dc7770644db8b608151c905f24d4f",
+        "name": "Produits Alba",
+        "website": "http://www.alba.com",
+        "size": "51-200 employees",
+        "industry": "Building Materials",
+        "description": "Depuis plus de 50 ans, Produits Alba inc. fabrique des briques, des pierres et des blocs architecturaux qui ont contribué à façonner les paysages nord-américains. Cette gamme de produits est fabriquée de calcite pure. La calcite, que certains qualifient de «MARBRE BLANC», détient des propriétés mécaniques exceptionnelles : solidité, durabilité, et résistance supérieure à la traction et aux infiltrations, en plus de posséder une apparence qui allie lumière, éclat distinctif et beauté.\n\nProduits Alba inc. fabrique aussi de formidables revêtements colorés : l’utilisation de multiples pigments permet de donner naissance à une vaste gamme de couleurs. Avec la minutie de l’artisan, les spécialistes de Produits Alba inc. cultivent l’art du travail bien fait ainsi que le souci constant de précéder les tendances des marchés. Il s’agit de l’essence même de la mission de l’entreprise.",
+        "followers": 37,
+        "founded": 1961,
+        "headquarters_city": null,
+        "headquarters_country": null,
+        "headquarters_state": null,
+        "headquarters_street1": null,
+        "headquarters_street2": null,
+        "headquarters_zip": null,
+        "logo_url": "https://media-exp1.licdn.com/dms/image/C560BAQHOeC0USYtL4g/company-logo_200_200/0/1519869057540?e=2147483647&v=beta&t=oasRjwFqAeAEHTbCJRijMQun6pVXSSDj4-GdYpu0YQM",
+        "created": "2016-06-25 02:31:50",
+        "last_updated": "2022-05-14 19:10:01",
+        "last_response_code": 200,
+        "type": "Sole Proprietorship",
+        "headquarters_new_address": "La Baie, Qc",
+        "employees_count": 3,
+        "headquarters_country_restored": "Canada",
+        "headquarters_country_parsed": "Canada",
+        "company_shorthand_name": "produits-alba",
+        "company_shorthand_name_hash": "f66a29d22082e44e4f93dbdb9e28248b",
+        "canonical_url": "https://ca.linkedin.com/company/produits-alba",
+        "canonical_hash": "81a2ddc6954ababb976db71addde5f71",
+        "canonical_shorthand_name": "produits-alba",
+        "canonical_shorthand_name_hash": "f66a29d22082e44e4f93dbdb9e28248b",
+        "deleted": 0,
+        "last_updated_ux": 1652555400,
+        "source_id": 335450,
+        "company_affiliated_collection": [],
+        "company_also_viewed_collection": [
+            {
+                "id": 30015844,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/msl-fibre",
+                "viewed_company_id": null,
+                "created": "2016-06-25 02:31:50",
+                "last_updated": "2016-12-14 11:51:56",
+                "deleted": 1
+            },
+            {
+                "id": 30015845,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/stim-",
+                "viewed_company_id": null,
+                "created": "2016-06-25 02:31:50",
+                "last_updated": "2016-12-14 11:51:56",
+                "deleted": 1
+            },
+            {
+                "id": 30015846,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/dramis-international",
+                "viewed_company_id": null,
+                "created": "2016-06-25 02:31:50",
+                "last_updated": "2016-12-14 11:51:56",
+                "deleted": 1
+            },
+            {
+                "id": 30015847,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/nrc-industries",
+                "viewed_company_id": null,
+                "created": "2016-06-25 02:31:50",
+                "last_updated": "2016-12-14 11:51:56",
+                "deleted": 1
+            },
+            {
+                "id": 30015848,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/l&s-cranberry-canneberges-l&s",
+                "viewed_company_id": null,
+                "created": "2016-06-25 02:31:50",
+                "last_updated": "2016-12-14 11:51:56",
+                "deleted": 1
+            },
+            {
+                "id": 30015849,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/stedfast-inc-",
+                "viewed_company_id": null,
+                "created": "2016-06-25 02:31:50",
+                "last_updated": "2016-12-14 11:51:56",
+                "deleted": 1
+            },
+            {
+                "id": 52664843,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/theka-industries-adex-akrilon-adexmat-adex-intl",
+                "viewed_company_id": null,
+                "created": "2016-12-14 11:51:56",
+                "last_updated": "2017-11-02 07:40:00",
+                "deleted": 1
+            },
+            {
+                "id": 52664844,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/p-h--tech",
+                "viewed_company_id": null,
+                "created": "2016-12-14 11:51:56",
+                "last_updated": "2017-08-12 08:05:14",
+                "deleted": 1
+            },
+            {
+                "id": 52664845,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/systeme-huntingdon-inc--formerly-folia-industries",
+                "viewed_company_id": null,
+                "created": "2016-12-14 11:51:56",
+                "last_updated": "2017-08-12 08:05:14",
+                "deleted": 1
+            },
+            {
+                "id": 52664846,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/cuisine-id-ale",
+                "viewed_company_id": null,
+                "created": "2016-12-14 11:51:56",
+                "last_updated": "2017-11-02 07:40:00",
+                "deleted": 1
+            },
+            {
+                "id": 52664847,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/beto-bloc",
+                "viewed_company_id": null,
+                "created": "2016-12-14 11:51:56",
+                "last_updated": "2017-08-12 08:05:14",
+                "deleted": 1
+            },
+            {
+                "id": 52664848,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/groupe-isolofoam",
+                "viewed_company_id": null,
+                "created": "2016-12-14 11:51:56",
+                "last_updated": "2017-02-04 11:12:38",
+                "deleted": 1
+            },
+            {
+                "id": 78816521,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/pro-garage-armor-flooring",
+                "viewed_company_id": null,
+                "created": "2017-02-04 11:12:38",
+                "last_updated": "2017-11-02 07:40:00",
+                "deleted": 1
+            },
+            {
+                "id": 101554567,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/freud-canada-inc",
+                "viewed_company_id": null,
+                "created": "2017-08-12 08:05:14",
+                "last_updated": "2017-11-02 07:40:00",
+                "deleted": 1
+            },
+            {
+                "id": 101554568,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/satin-finish-hardwood-flooring",
+                "viewed_company_id": null,
+                "created": "2017-08-12 08:05:14",
+                "last_updated": "2017-11-02 07:40:00",
+                "deleted": 1
+            },
+            {
+                "id": 101554569,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/owl-distribution-inc-",
+                "viewed_company_id": null,
+                "created": "2017-08-12 08:05:14",
+                "last_updated": "2017-11-02 07:40:00",
+                "deleted": 1
+            },
+            {
+                "id": 115188623,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/elite-boutique-events-catering-services",
+                "viewed_company_id": null,
+                "created": "2017-11-02 07:39:59",
+                "last_updated": "2019-05-28 05:09:42",
+                "deleted": 1
+            },
+            {
+                "id": 115188624,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/housing-dynasty-pvt-ltd",
+                "viewed_company_id": null,
+                "created": "2017-11-02 07:39:59",
+                "last_updated": "2019-05-28 05:09:42",
+                "deleted": 1
+            },
+            {
+                "id": 115188625,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/dubazon",
+                "viewed_company_id": null,
+                "created": "2017-11-02 07:39:59",
+                "last_updated": "2018-03-13 00:55:53",
+                "deleted": 1
+            },
+            {
+                "id": 115188626,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/noble-hospitals-private-limited",
+                "viewed_company_id": null,
+                "created": "2017-11-02 07:39:59",
+                "last_updated": "2019-05-28 05:09:42",
+                "deleted": 1
+            },
+            {
+                "id": 115188627,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/ch%C5%8Dsen-experiences",
+                "viewed_company_id": null,
+                "created": "2017-11-02 07:39:59",
+                "last_updated": "2018-03-13 00:55:53",
+                "deleted": 1
+            },
+            {
+                "id": 115188628,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/property-universe-real-estate-l-l-c",
+                "viewed_company_id": null,
+                "created": "2017-11-02 07:39:59",
+                "last_updated": "2018-07-26 21:35:15",
+                "deleted": 1
+            },
+            {
+                "id": 135590654,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/albatross-shipping",
+                "viewed_company_id": null,
+                "created": "2018-03-13 00:55:53",
+                "last_updated": "2019-05-28 05:09:42",
+                "deleted": 1
+            },
+            {
+                "id": 135590655,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/parfait-patisserie",
+                "viewed_company_id": null,
+                "created": "2018-03-13 00:55:53",
+                "last_updated": "2018-08-15 16:43:06",
+                "deleted": 1
+            },
+            {
+                "id": 146657641,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/serve-plus",
+                "viewed_company_id": null,
+                "created": "2018-07-26 21:35:15",
+                "last_updated": "2018-09-29 06:36:09",
+                "deleted": 1
+            },
+            {
+                "id": 154796014,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/property-universe-real-estate-l-l-c",
+                "viewed_company_id": null,
+                "created": "2018-08-15 16:43:06",
+                "last_updated": "2018-08-29 05:28:20",
+                "deleted": 1
+            },
+            {
+                "id": 156683433,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/parfait-patisserie",
+                "viewed_company_id": null,
+                "created": "2018-08-29 05:28:20",
+                "last_updated": "2019-05-28 05:09:42",
+                "deleted": 1
+            },
+            {
+                "id": 162989673,
+                "company_id": 7960749,
+                "viewed_company_url": "https://www.linkedin.com/company/property-universe-real-estate-l-l-c",
+                "viewed_company_id": null,
+                "created": "2018-09-29 06:36:09",
+                "last_updated": "2019-05-28 05:09:42",
+                "deleted": 1
+            }
+        ],
+        "company_crunchbase_info_collection": [],
+        "company_featured_employees_collection": [
+            {
+                "id": 20346810,
+                "company_id": 7960749,
+                "url": "https://www.linkedin.com/in/denis-roy-48437023",
+                "created": "2019-11-06 04:48:43",
+                "last_updated": "2020-02-04 09:01:53",
+                "deleted": 1
+            },
+            {
+                "id": 20346811,
+                "company_id": 7960749,
+                "url": "https://www.linkedin.com/in/jane-doe-ab213529",
+                "created": "2019-11-06 04:48:43",
+                "last_updated": "2020-02-04 09:01:53",
+                "deleted": 1
+            },
+            {
+                "id": 20346812,
+                "company_id": 7960749,
+                "url": "https://www.linkedin.com/in/julie-cloutier-1b700834",
+                "created": "2019-11-06 04:48:43",
+                "last_updated": "2022-05-14 19:10:00",
+                "deleted": 0
+            },
+            {
+                "id": 20346813,
+                "company_id": 7960749,
+                "url": "https://www.linkedin.com/in/kim-miller-38639465",
+                "created": "2019-11-06 04:48:43",
+                "last_updated": "2020-02-04 09:01:53",
+                "deleted": 1
+            }
+        ],
+        "company_featured_investors_collection": [],
+        "company_funding_rounds_collection": [],
+        "company_locations_collection": [
+            {
+                "id": 8622847,
+                "company_id": 7960749,
+                "location_address": "300 Grande-Baie Nord; La Baie, Qc G7B3K3, CA",
+                "is_primary": 1,
+                "created": "2019-11-06 04:48:43",
+                "last_updated": "2022-05-14 19:10:00",
+                "deleted": 0
+            }
+        ],
+        "company_similar_collection": [
+            {
+                "id": 259460697,
+                "company_id": 7960749,
+                "url": "https://www.linkedin.com/company/les-ferrailleurs-du-qu%C3%A9bec-inc-",
+                "created": "2020-10-31 14:12:59",
+                "last_updated": "2021-06-26 01:48:15",
+                "deleted": 1
+            },
+            {
+                "id": 259460698,
+                "company_id": 7960749,
+                "url": "https://www.linkedin.com/company/fraser-health-authority",
+                "created": "2020-10-31 14:12:59",
+                "last_updated": "2020-12-20 07:22:25",
+                "deleted": 1
+            },
+            {
+                "id": 338084764,
+                "company_id": 7960749,
+                "url": "https://ca.linkedin.com/company/fraser-health-authority",
+                "created": "2020-12-20 07:22:25",
+                "last_updated": "2021-06-26 01:48:15",
+                "deleted": 1
+            },
+            {
+                "id": 493966783,
+                "company_id": 7960749,
+                "url": "https://www.linkedin.com/company/les-ferrailleurs-du-qu%C3%A9bec-inc-",
+                "created": "2021-09-12 20:51:15",
+                "last_updated": "2022-03-01 16:18:32",
+                "deleted": 1
+            },
+            {
+                "id": 493966784,
+                "company_id": 7960749,
+                "url": "https://ca.linkedin.com/company/fraser-health-authority",
+                "created": "2021-09-12 20:51:15",
+                "last_updated": "2022-03-01 16:18:32",
+                "deleted": 1
+            }
+        ],
+        "company_specialties_collection": [
+            {
+                "id": 11279743,
+                "company_id": 7960749,
+                "specialty": "Calcite pure",
+                "created": "2016-06-25 02:31:50",
+                "last_updated": "2022-05-14 19:10:00",
+                "deleted": 0
+            }
+        ],
+        "company_stock_info_collection": []
+    }
+]
