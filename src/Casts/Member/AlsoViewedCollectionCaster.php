@@ -1,8 +1,8 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\Casts;
+namespace Muscobytes\CoresignalDbApi\Casts\Member;
 
-use Muscobytes\CoresignalDbApi\DTO\AlsoViewedDTO;
+use Muscobytes\CoresignalDbApi\DTO\Member\AlsoViewedDTO;
 use Spatie\DataTransferObject\Caster;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 

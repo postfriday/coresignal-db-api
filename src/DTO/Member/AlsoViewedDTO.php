@@ -1,6 +1,6 @@
 <?php
 
-namespace Muscobytes\CoresignalDbApi\DTO;
+namespace Muscobytes\CoresignalDbApi\DTO\Member;
 
 use Carbon\Carbon;
 use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;

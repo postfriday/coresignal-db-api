@@ -3,7 +3,7 @@
 namespace Muscobytes\CoresignalDbApi\Tests\DTO\Member;
 
 use Carbon\Carbon;
-use Muscobytes\CoresignalDbApi\DTO\AlsoViewedDTO;
+use Muscobytes\CoresignalDbApi\DTO\Member\AlsoViewedDTO;
 use PHPUnit\Framework\TestCase;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
