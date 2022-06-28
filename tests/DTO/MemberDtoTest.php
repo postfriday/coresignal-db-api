@@ -95,7 +95,14 @@ class MemberDtoTest extends TestCase
 
     public function createMemberDtoDataProvider()
     {
-        $members = json_decode(file_get_contents(__DIR__ . '/fixtures/members.json'), true);
+        $dir = __DIR__ . '/fixtures/members/';
+        $files = scandir($dir);
+        $members = [];
+        foreach ($files as $file) {
+            if (!is_dir($dir . $file)) {
+                $members[] = json_decode(file_get_contents($dir . $file), true);
+            }
+        }
         return array_map(function($member){
             return [ $member ];
         }, $members);
