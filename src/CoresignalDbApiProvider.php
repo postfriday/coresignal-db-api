@@ -15,11 +15,13 @@ use Muscobytes\CoresignalDbApi\DTO\MemberDTO;
 use Muscobytes\CoresignalDbApi\Exceptions\ClientException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServerErrorException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServiceUnavailableException;
+use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
+use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
 class CoresignalDbApiProvider
 {
@@ -41,6 +43,13 @@ class CoresignalDbApiProvider
     ];
 
 
+    /**
+     * @param string $apikey
+     * @param LoggerInterface|null $logger
+     * @param ClientInterface|null $client
+     * @param RequestFactoryInterface|null $requestFactory
+     * @param StreamFactoryInterface|null $streamFactory
+     */
     public function __construct(
         string $apikey,
         LoggerInterface $logger = null,
@@ -57,6 +66,16 @@ class CoresignalDbApiProvider
     }
 
 
+    /**
+     * @param string $method
+     * @param string $endpointUrl
+     * @param array $payload
+     * @return array
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     * @throws ClientExceptionInterface
+     */
     public function request(
         string $method,
         string $endpointUrl,
@@ -112,30 +131,68 @@ class CoresignalDbApiProvider
     }
 
 
+    /**
+     * @param string $value
+     * @return MemberDTO
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     * @throws UnknownProperties
+     */
     public function memberCollectBy(string $value): MemberDTO
     {
         return new MemberDTO($this->request('GET', '/v1/linkedin/member/collect/' . $value));
     }
 
 
+    /**
+     * @param string $memberId
+     * @return MemberDTO
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     * @throws UnknownProperties
+     */
     public function memberCollectById(string $memberId): MemberDTO
     {
         return $this->memberCollectBy($memberId);
     }
 
 
+    /**
+     * @param string $shorthandName
+     * @return MemberDTO
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     * @throws UnknownProperties
+     */
     public function memberCollectByShorthandName(string $shorthandName): MemberDTO
     {
         return $this->memberCollectBy($shorthandName);
     }
 
 
+    /**
+     * @param MemberSearchFilter $filter
+     * @return array
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     */
     public function memberSearchFilter(MemberSearchFilter $filter): array
     {
         return $this->request('POST', '/v1/linkedin/member/search/filter', $filter->getFilters());
     }
 
 
+    /**
+     * @param ElasticsearchQuery $query
+     * @return array
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     */
     public function memberSearchEsdsl(ElasticsearchQuery $query): array
     {
         return $this->request('POST', '/v1/linkedin/member/search/es_dsl', [
@@ -144,30 +201,68 @@ class CoresignalDbApiProvider
     }
 
 
+    /**
+     * @param string $value
+     * @return CompanyDTO
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     * @throws UnknownProperties
+     */
     public function companyCollectBy(string $value): CompanyDTO
     {
         return new CompanyDTO($this->request('GET', '/v1/linkedin/company/collect/' . $value));
     }
 
 
+    /**
+     * @param string $companyId
+     * @return CompanyDTO
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     * @throws UnknownProperties
+     */
     public function companyCollectById(string $companyId): CompanyDTO
     {
         return $this->companyCollectBy($companyId);
     }
 
 
+    /**
+     * @param string $shorthandName
+     * @return CompanyDTO
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     * @throws UnknownProperties
+     */
     public function companyCollectByShorthandName(string $shorthandName): CompanyDTO
     {
         return $this->companyCollectBy($shorthandName);
     }
 
 
+    /**
+     * @param CompanySearchFilter $filter
+     * @return array
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     */
     public function companySearchFilter(CompanySearchFilter $filter): array
     {
         return $this->request('POST', '/v1/linkedin/company/search/filter', $filter->getFilters());
     }
 
 
+    /**
+     * @param ElasticsearchQuery $query
+     * @return array
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     */
     public function companySearchEsdsl(ElasticsearchQuery $query): array
     {
         return $this->request('POST', '/v1/linkedin/company/search/es_dsl', [
@@ -176,23 +271,54 @@ class CoresignalDbApiProvider
     }
 
 
+    /**
+     * @param string $value
+     * @return array
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     */
     public function jobCollectBy(string $value): array
     {
         return $this->request('GET', '/v1/linkedin/job/collect/' . $value);
     }
 
 
+    /**
+     * @param string $id
+     * @return array
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     */
     public function jobCollectById(string $id): array
     {
         return $this->jobCollectBy($id);
     }
 
+
+    /**
+     * @param JobSearchFilter $filter
+     * @return array
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     * @throws ClientExceptionInterface
+     */
     public function jobSearchFilter(JobSearchFilter $filter): array
     {
         return $this->request('POST', '/v1/linkedin/job/search/filter', $filter->getFilters());
     }
 
 
+    /**
+     * @param string $filterName
+     * @param string $filterValue
+     * @return array
+     * @throws ClientException
+     * @throws ServerErrorException
+     * @throws ServiceUnavailableException
+     */
     public function companySearchFilterBy(string $filterName, string $filterValue): array
     {
         return $this->companySearchFilter(new CompanySearchFilter([$filterName => $filterValue]));
