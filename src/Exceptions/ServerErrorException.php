@@ -2,7 +2,9 @@
 
 namespace Muscobytes\CoresignalDbApi\Exceptions;
 
-class ServerErrorException extends \Exception
+use \Exception;
+
+class ServerErrorException extends Exception
 {
 
 }
