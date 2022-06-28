@@ -19,7 +19,7 @@ class ExperienceDTO extends DataTransferObject
 
     public ?string $location;
 
-    public string $company_name;
+    public ?string $company_name;
 
     public ?string $company_url;
 

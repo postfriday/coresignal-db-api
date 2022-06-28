@@ -21,7 +21,7 @@ class AwardDTO extends DataTransferObject
 
     public ?string $description;
 
-    public string $date;
+    public ?string $date;
 
     #[CastWith(CarbonCaster::class)]
     public Carbon $created;

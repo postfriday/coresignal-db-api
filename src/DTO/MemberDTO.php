@@ -31,10 +31,14 @@ class MemberDTO extends DataTransferObject
      */
     public string $name;
 
+    public ?string $first_name;
+
+    public ?string $last_name;
+
     /*
      * Title (Headline field in Linkedin's public profile) of a member
      */
-    public string $title;
+    public ?string $title;
 
     /*
      *
@@ -58,7 +62,7 @@ class MemberDTO extends DataTransferObject
      */
     public ?string $summary;
 
-    public string $connections;
+    public ?string $connections;
 
     public string $recommendations_count;
 

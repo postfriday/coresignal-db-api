@@ -16,7 +16,7 @@ class PatentDTO extends DataTransferObject
 
     public int $member_id;
 
-    public string $title;
+    public ?string $title;
 
     public int $status_id;
 
@@ -24,7 +24,7 @@ class PatentDTO extends DataTransferObject
 
     public ?string $date;
 
-    public string $url;
+    public ?string $url;
 
     public ?string $description;
 

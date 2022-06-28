@@ -19,7 +19,7 @@ class PublicationDTO extends DataTransferObject
 
     public ?string $publisher;
 
-    public string $date;
+    public ?string $date;
 
     public ?string $description;
 
