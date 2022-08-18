@@ -50,7 +50,7 @@ class MemberDTO extends DataTransferObject
     /*
      * Member's location as input by the member on Linkedin
      */
-    public string $location;
+    public ?string $location;
 
     /*
      * Member's industry as input by the member on Linkedin (not directly related to any particular work experience).
@@ -64,9 +64,9 @@ class MemberDTO extends DataTransferObject
 
     public ?string $connections;
 
-    public string $recommendations_count;
+    public ?string $recommendations_count;
 
-    public string $logo_url;
+    public ?string $logo_url;
 
     public string $last_response_code;
 
