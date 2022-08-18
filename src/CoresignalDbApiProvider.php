@@ -15,6 +15,7 @@ use Muscobytes\CoresignalDbApi\DTO\MemberDTO;
 use Muscobytes\CoresignalDbApi\Exceptions\ClientException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServerErrorException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServiceUnavailableException;
+use Muscobytes\CoresignalDbApi\Exceptions\UnknownException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -74,6 +75,7 @@ class CoresignalDbApiProvider
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
+     * @throws UnknownException
      * @throws ClientExceptionInterface
      */
     public function request(
@@ -84,10 +86,9 @@ class CoresignalDbApiProvider
     {
         $uri = self::BASE_URI . $endpointUrl;
 
-        $this->logger->debug('CoreSignalDbApi->request()', [
+        $this->logger->info('CoreSignalDbApi->request()', [
             'method' => $method,
-            'uri' => $uri,
-            'payload' => $payload
+            'uri' => $uri
         ]);
         $request = $this->requestFactory->createRequest($method, $uri);
         $request = $this->authentication->authenticate($request);
@@ -105,29 +106,33 @@ class CoresignalDbApiProvider
 
         $response = $this->client->sendRequest($request);
 
-        $statusCode = $response->getStatusCode();
+        // Log remaining credits count
+        $creditsRemainingHeaderName = 'X-Credits-Remaining';
+        $creditsRemainingHeader = $response->getHeader($creditsRemainingHeaderName);
+        if (!empty($creditsRemainingHeader)) {
+            $this->logger->info('Credits remaining:', [ $creditsRemainingHeaderName => $creditsRemainingHeader[0] ]);
+        }
 
+        $statusCode = $response->getStatusCode();
         if ($statusCode > 500) {
             $reason = $response->getReasonPhrase();
             $this->logger->error('ServiceUnavailableException: ' . $statusCode . ' ' . $reason);
-            throw new ServiceUnavailableException();
-        }
-
-        if ($statusCode === 500) {
+            throw new ServiceUnavailableException($reason, $statusCode);
+        } elseif ($statusCode === 500) {
             $reason = $response->getReasonPhrase();
             $this->logger->error('ServerErrorException: ' . $statusCode . ' ' . $reason);
             throw new ServerErrorException($reason, $statusCode);
-        }
-
-        if ($statusCode >= 400) {
+        } elseif ($statusCode >= 400) {
             $reason = $response->getReasonPhrase();
             $this->logger->error('ClientException: ' . $statusCode . ' ' . $reason);
-            throw new ClientException($reason, $statusCode);
+            throw new ClientException();
+        } elseif ($statusCode !== 200) {
+            $reason = $response->getReasonPhrase();
+            $this->logger->error('ClientException: ' . $statusCode . ' ' . $reason);
+            throw new UnknownException();
         }
 
-        $contents = json_decode($response->getBody()->getContents(), true);
-        $this->logger->debug('Response contents:', $contents);
-        return $contents;
+        return json_decode($response->getBody()->getContents(), true);
     }
 
 
@@ -138,6 +143,8 @@ class CoresignalDbApiProvider
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
      * @throws UnknownProperties
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function memberCollectBy(string $value): MemberDTO
     {
@@ -152,6 +159,8 @@ class CoresignalDbApiProvider
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
      * @throws UnknownProperties
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function memberCollectById(string $memberId): MemberDTO
     {
@@ -166,6 +175,8 @@ class CoresignalDbApiProvider
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
      * @throws UnknownProperties
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function memberCollectByShorthandName(string $shorthandName): MemberDTO
     {
@@ -177,8 +188,10 @@ class CoresignalDbApiProvider
      * @param MemberSearchFilter $filter
      * @return array
      * @throws ClientException
+     * @throws ClientExceptionInterface
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
+     * @throws UnknownException
      */
     public function memberSearchFilter(MemberSearchFilter $filter): array
     {
@@ -192,6 +205,8 @@ class CoresignalDbApiProvider
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function memberSearchEsdsl(ElasticsearchQuery $query): array
     {
@@ -208,6 +223,8 @@ class CoresignalDbApiProvider
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
      * @throws UnknownProperties
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function companyCollectBy(string $value): CompanyDTO
     {
@@ -222,6 +239,8 @@ class CoresignalDbApiProvider
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
      * @throws UnknownProperties
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function companyCollectById(string $companyId): CompanyDTO
     {
@@ -236,6 +255,8 @@ class CoresignalDbApiProvider
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
      * @throws UnknownProperties
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function companyCollectByShorthandName(string $shorthandName): CompanyDTO
     {
@@ -249,6 +270,9 @@ class CoresignalDbApiProvider
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
+     * @throws ClientExceptionInterface
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function companySearchFilter(CompanySearchFilter $filter): array
     {
@@ -262,6 +286,9 @@ class CoresignalDbApiProvider
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
+     * @throws ClientExceptionInterface
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function companySearchEsdsl(ElasticsearchQuery $query): array
     {
@@ -277,6 +304,8 @@ class CoresignalDbApiProvider
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
+     * @throws ClientExceptionInterface
+     * @throws UnknownException
      */
     public function jobCollectBy(string $value): array
     {
@@ -290,6 +319,8 @@ class CoresignalDbApiProvider
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
+     * @throws ClientExceptionInterface
+     * @throws UnknownException
      */
     public function jobCollectById(string $id): array
     {
@@ -303,6 +334,7 @@ class CoresignalDbApiProvider
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
+     * @throws UnknownException
      * @throws ClientExceptionInterface
      */
     public function jobSearchFilter(JobSearchFilter $filter): array
@@ -318,6 +350,8 @@ class CoresignalDbApiProvider
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
+     * @throws UnknownException
+     * @throws ClientExceptionInterface
      */
     public function companySearchFilterBy(string $filterName, string $filterValue): array
     {
