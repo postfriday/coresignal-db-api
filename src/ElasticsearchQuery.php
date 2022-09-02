@@ -4,10 +4,12 @@ namespace Muscobytes\CoresignalDbApi;
 
 class ElasticsearchQuery
 {
-    protected string $query = '';
+    public function __construct(public array $query)
+    {
+        //
+    }
 
-
-    public function toString(): string
+    public function toString(): array
     {
         return $this->query;
     }
