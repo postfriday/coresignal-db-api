@@ -125,7 +125,7 @@ class CoresignalDbApiProvider
         } elseif ($statusCode >= 400) {
             $reason = $response->getReasonPhrase();
             $this->logger->error('ClientException: ' . $statusCode . ' ' . $reason);
-            throw new ClientException();
+            throw new ClientException($reason, $statusCode);
         } elseif ($statusCode !== 200) {
             $reason = $response->getReasonPhrase();
             $this->logger->error('ClientException: ' . $statusCode . ' ' . $reason);
