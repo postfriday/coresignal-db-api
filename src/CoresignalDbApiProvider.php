@@ -28,7 +28,7 @@ class CoresignalDbApiProvider
 {
     use LoggerAwareTrait;
 
-    const BASE_URI = 'https://api.coresignal.com/dbapi';
+    const BASE_URI = 'https://api.coresignal.com/cdapi';
 
     private ClientInterface $client;
 
