@@ -6,12 +6,12 @@
         "php": "^8.0",
         "ext-json": "*",
         "spatie/data-transfer-object": "dev-main",
-        "nesbot/carbon": "3.x-dev",
         "psr/http-client": "^1.0",
         "psr/http-client-implementation": "*",
         "psr/http-factory": "^1.0",
         "psr/http-factory-implementation": "*",
-        "psr/log": "^2.0"
+        "psr/log": "^2.0",
+        "nesbot/carbon": "^2"
     },
     "license": "MIT",
     "autoload": {
