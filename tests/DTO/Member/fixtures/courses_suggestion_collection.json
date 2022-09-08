@@ -1,0 +1,402 @@
+[
+    {
+        "id": 82715216,
+        "member_id": 57064683,
+        "course_suggestion_id": 393,
+        "created": "2019-11-29 20:21:08",
+        "last_updated": "2019-12-19 22:55:07",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 393,
+            "name": "Selling Strategies that Boost Customer Acquisition",
+            "hash": "dfe1e6aa72283b80aa2fa83488ecea9f",
+            "url": "https://www.linkedin.com/learning/selling-strategies-that-boost-customer-acquisition",
+            "created": "2019-11-04 12:23:51",
+            "last_updated": "2019-11-04 12:23:51"
+        }
+    },
+    {
+        "id": 82715219,
+        "member_id": 57064683,
+        "course_suggestion_id": 10994,
+        "created": "2019-11-29 20:21:08",
+        "last_updated": "2019-12-19 22:55:07",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 10994,
+            "name": "Identifying Your Target Market",
+            "hash": "61925a50399ef264fe52d41234dee331",
+            "url": "https://www.linkedin.com/learning/identifying-your-target-market",
+            "created": "2019-11-04 23:03:53",
+            "last_updated": "2019-11-04 23:03:53"
+        }
+    },
+    {
+        "id": 82715222,
+        "member_id": 57064683,
+        "course_suggestion_id": 941,
+        "created": "2019-11-29 20:21:08",
+        "last_updated": "2020-04-20 07:09:36",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 941,
+            "name": "Mobile Marketing: Creating a Strategy",
+            "hash": "2a5a5326bbbe95d70c988d829557833a",
+            "url": "https://www.linkedin.com/learning/mobile-marketing-creating-a-strategy",
+            "created": "2019-11-04 12:25:07",
+            "last_updated": "2019-11-04 12:25:07"
+        }
+    },
+    {
+        "id": 145718250,
+        "member_id": 57064683,
+        "course_suggestion_id": 1440,
+        "created": "2019-12-19 22:55:09",
+        "last_updated": "2020-04-20 07:09:36",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 1440,
+            "name": "Scaling Your Small Business",
+            "hash": "36d69d05360956b31439d8710372f952",
+            "url": "https://www.linkedin.com/learning/scaling-your-small-business",
+            "created": "2019-11-04 12:25:36",
+            "last_updated": "2019-11-04 12:25:36"
+        }
+    },
+    {
+        "id": 145718251,
+        "member_id": 57064683,
+        "course_suggestion_id": 1028,
+        "created": "2019-12-19 22:55:09",
+        "last_updated": "2020-04-20 07:09:36",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 1028,
+            "name": "Business Innovation Foundations",
+            "hash": "953e617d42836ad0090e31c28b148be7",
+            "url": "https://www.linkedin.com/learning/business-innovation-foundations",
+            "created": "2019-11-04 12:25:13",
+            "last_updated": "2019-11-04 12:25:13"
+        }
+    },
+    {
+        "id": 415971456,
+        "member_id": 57064683,
+        "course_suggestion_id": 11190,
+        "created": "2020-04-20 07:09:37",
+        "last_updated": "2020-08-03 07:48:55",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 11190,
+            "name": "Advanced Google Analytics",
+            "hash": "0bba718749fbb2ee1286b4bce1a86fa0",
+            "url": "https://www.linkedin.com/learning/advanced-google-analytics-4",
+            "created": "2019-11-05 14:46:04",
+            "last_updated": "2019-11-05 14:46:04"
+        }
+    },
+    {
+        "id": 415971457,
+        "member_id": 57064683,
+        "course_suggestion_id": 13590,
+        "created": "2020-04-20 07:09:37",
+        "last_updated": "2020-08-03 07:48:55",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 13590,
+            "name": "Evaluating Business Investment Decisions",
+            "hash": "7032cb2a21ae93275f1d04553c88e5b3",
+            "url": "https://www.linkedin.com/learning/evaluating-business-investment-decisions",
+            "created": "2020-03-27 11:34:40",
+            "last_updated": "2020-03-27 11:34:40"
+        }
+    },
+    {
+        "id": 415971458,
+        "member_id": 57064683,
+        "course_suggestion_id": 1050,
+        "created": "2020-04-20 07:09:37",
+        "last_updated": "2020-08-03 07:48:55",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 1050,
+            "name": "Real Estate Deal Structuring: Introduction to the Waterfall Framework",
+            "hash": "90bf84ed483f1e335c88c498e326ad84",
+            "url": "https://www.linkedin.com/learning/real-estate-deal-structuring-introduction-to-the-waterfall-framework",
+            "created": "2019-11-04 12:25:14",
+            "last_updated": "2019-11-04 12:25:14"
+        }
+    },
+    {
+        "id": 676577728,
+        "member_id": 57064683,
+        "course_suggestion_id": 4410,
+        "created": "2020-08-03 07:48:55",
+        "last_updated": "2020-08-17 02:00:57",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 4410,
+            "name": "Optimizing Marketing Emails",
+            "hash": "63f0227965c56c880f5e57aa646b91dc",
+            "url": "https://www.linkedin.com/learning/optimizing-marketing-emails",
+            "created": "2019-11-04 12:29:04",
+            "last_updated": "2019-11-04 12:29:04"
+        }
+    },
+    {
+        "id": 676577729,
+        "member_id": 57064683,
+        "course_suggestion_id": 2595,
+        "created": "2020-08-03 07:48:55",
+        "last_updated": "2020-08-17 02:00:57",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 2595,
+            "name": "Marketing Foundations: International Marketing",
+            "hash": "2406f52c012bd29e9f360d1dfea80c72",
+            "url": "https://www.linkedin.com/learning/marketing-foundations-international-marketing",
+            "created": "2019-11-04 12:27:20",
+            "last_updated": "2019-11-04 12:27:20"
+        }
+    },
+    {
+        "id": 676577730,
+        "member_id": 57064683,
+        "course_suggestion_id": 10994,
+        "created": "2020-08-03 07:48:55",
+        "last_updated": "2020-08-17 02:00:57",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 10994,
+            "name": "Identifying Your Target Market",
+            "hash": "61925a50399ef264fe52d41234dee331",
+            "url": "https://www.linkedin.com/learning/identifying-your-target-market",
+            "created": "2019-11-04 23:03:53",
+            "last_updated": "2019-11-04 23:03:53"
+        }
+    },
+    {
+        "id": 932851008,
+        "member_id": 57064683,
+        "course_suggestion_id": 14737,
+        "created": "2020-12-02 16:42:19",
+        "last_updated": "2021-02-01 03:26:36",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 14737,
+            "name": "17 Questions to Help Improve Your Marketing",
+            "hash": "ed5dbb55b50153a6e416f499b28e75d0",
+            "url": "https://www.linkedin.com/learning/17-questions-to-help-improve-your-marketing",
+            "created": "2020-08-24 07:50:46",
+            "last_updated": "2020-08-24 07:50:46"
+        }
+    },
+    {
+        "id": 932851009,
+        "member_id": 57064683,
+        "course_suggestion_id": 38,
+        "created": "2020-12-02 16:42:19",
+        "last_updated": "2021-02-01 03:26:36",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 38,
+            "name": "The New Age of Risk Management Strategy for Business",
+            "hash": "47b55fa040fad3b062c513c0e155d67b",
+            "url": "https://www.linkedin.com/learning/the-new-age-of-risk-management-strategy-for-business",
+            "created": "2019-11-04 12:17:45",
+            "last_updated": "2019-11-04 12:17:45"
+        }
+    },
+    {
+        "id": 932851010,
+        "member_id": 57064683,
+        "course_suggestion_id": 10951,
+        "created": "2020-12-02 16:42:19",
+        "last_updated": "2021-02-26 18:57:07",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 10951,
+            "name": "Market Research Foundations",
+            "hash": "960b8f6320fb040e4cc7f8c40c364b44",
+            "url": "https://www.linkedin.com/learning/market-research-foundations",
+            "created": "2019-11-04 21:31:38",
+            "last_updated": "2019-11-04 21:31:38"
+        }
+    },
+    {
+        "id": 1052319926,
+        "member_id": 57064683,
+        "course_suggestion_id": 15689,
+        "created": "2021-02-01 03:26:36",
+        "last_updated": "2021-02-28 11:36:00",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 15689,
+            "name": "43 Ideas for Starting a Side Business",
+            "hash": "73b90140c7f14910bc84ae2d5a253bfd",
+            "url": "https://www.linkedin.com/learning/43-ideas-for-starting-a-side-business",
+            "created": "2020-11-17 04:45:14",
+            "last_updated": "2020-11-17 04:45:14"
+        }
+    },
+    {
+        "id": 1052319927,
+        "member_id": 57064683,
+        "course_suggestion_id": 13918,
+        "created": "2021-02-01 03:26:36",
+        "last_updated": "2021-02-26 18:57:07",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 13918,
+            "name": "UX Foundations: Storytelling",
+            "hash": "588ef93680a090833eb5e7261a455d7f",
+            "url": "https://www.linkedin.com/learning/ux-foundations-storytelling",
+            "created": "2020-05-14 12:12:40",
+            "last_updated": "2020-05-14 12:12:40"
+        }
+    },
+    {
+        "id": 1111521466,
+        "member_id": 57064683,
+        "course_suggestion_id": 5468,
+        "created": "2021-02-26 18:57:07",
+        "last_updated": "2021-03-24 15:27:40",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 5468,
+            "name": "Learning eDrawings",
+            "hash": "7f28e5a6b21dc55cdd88780279821bba",
+            "url": "https://www.linkedin.com/learning/learning-edrawings",
+            "created": "2019-11-04 12:31:12",
+            "last_updated": "2019-11-04 12:31:12"
+        }
+    },
+    {
+        "id": 1111521467,
+        "member_id": 57064683,
+        "course_suggestion_id": 2212,
+        "created": "2021-02-26 18:57:07",
+        "last_updated": "2021-02-28 11:36:00",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 2212,
+            "name": "Learning Salesforce",
+            "hash": "e97bf0c61054ca786f6404901f645845",
+            "url": "https://www.linkedin.com/learning/learning-salesforce",
+            "created": "2019-11-04 12:26:33",
+            "last_updated": "2019-11-04 12:26:33"
+        }
+    },
+    {
+        "id": 1114764917,
+        "member_id": 57064683,
+        "course_suggestion_id": 6237,
+        "created": "2021-02-28 11:36:00",
+        "last_updated": "2021-03-24 15:27:40",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 6237,
+            "name": "Prototype a CRM Mobile App with Framer",
+            "hash": "bf74f59e6e3958e61a2d099907755945",
+            "url": "https://www.linkedin.com/learning/prototype-a-crm-mobile-app-with-framer",
+            "created": "2019-11-04 12:38:32",
+            "last_updated": "2019-11-04 12:38:32"
+        }
+    },
+    {
+        "id": 1114764918,
+        "member_id": 57064683,
+        "course_suggestion_id": 2979,
+        "created": "2021-02-28 11:36:00",
+        "last_updated": "2021-03-24 15:27:40",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 2979,
+            "name": "Salesforce: Working with Apps",
+            "hash": "49a3436b388659ca8e778c13de38ff8e",
+            "url": "https://www.linkedin.com/learning/salesforce-working-with-apps",
+            "created": "2019-11-04 12:27:32",
+            "last_updated": "2019-11-04 12:27:32"
+        }
+    },
+    {
+        "id": 1191784808,
+        "member_id": 57064683,
+        "course_suggestion_id": 10951,
+        "created": "2021-03-24 15:27:40",
+        "last_updated": "2021-07-01 15:10:10",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 10951,
+            "name": "Market Research Foundations",
+            "hash": "960b8f6320fb040e4cc7f8c40c364b44",
+            "url": "https://www.linkedin.com/learning/market-research-foundations",
+            "created": "2019-11-04 21:31:38",
+            "last_updated": "2019-11-04 21:31:38"
+        }
+    },
+    {
+        "id": 1191784809,
+        "member_id": 57064683,
+        "course_suggestion_id": 2212,
+        "created": "2021-03-24 15:27:40",
+        "last_updated": "2021-04-27 10:45:04",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 2212,
+            "name": "Learning Salesforce",
+            "hash": "e97bf0c61054ca786f6404901f645845",
+            "url": "https://www.linkedin.com/learning/learning-salesforce",
+            "created": "2019-11-04 12:26:33",
+            "last_updated": "2019-11-04 12:26:33"
+        }
+    },
+    {
+        "id": 1191784810,
+        "member_id": 57064683,
+        "course_suggestion_id": 15838,
+        "created": "2021-03-24 15:27:40",
+        "last_updated": "2021-05-27 12:10:11",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 15838,
+            "name": "Unity: Building VR User Interfaces",
+            "hash": "47e1905fefb0edc1a8c443f9e44936e6",
+            "url": "https://www.linkedin.com/learning/unity-building-vr-user-interfaces",
+            "created": "2020-11-25 11:52:29",
+            "last_updated": "2020-11-25 11:52:29"
+        }
+    },
+    {
+        "id": 1260171533,
+        "member_id": 57064683,
+        "course_suggestion_id": 15549,
+        "created": "2021-04-27 10:45:04",
+        "last_updated": "2021-07-01 15:10:10",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 15549,
+            "name": "Building and Managing Signature Products",
+            "hash": "6d9317cbd1db2bdc5cd0a0cdcee3c5af",
+            "url": "https://www.linkedin.com/learning/building-and-managing-signature-products",
+            "created": "2020-10-23 10:16:47",
+            "last_updated": "2020-10-23 10:16:47"
+        }
+    },
+    {
+        "id": 1312054762,
+        "member_id": 57064683,
+        "course_suggestion_id": 2979,
+        "created": "2021-05-27 12:10:11",
+        "last_updated": "2021-07-01 15:10:10",
+        "deleted": 1,
+        "member_courses_suggestion_list": {
+            "id": 2979,
+            "name": "Salesforce: Working with Apps",
+            "hash": "49a3436b388659ca8e778c13de38ff8e",
+            "url": "https://www.linkedin.com/learning/salesforce-working-with-apps",
+            "created": "2019-11-04 12:27:32",
+            "last_updated": "2019-11-04 12:27:32"
+        }
+    }
+]
