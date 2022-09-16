@@ -60,9 +60,7 @@ class CoresignalDbApiProvider
         LoggerInterface         $logger = null,
     )
     {
-        $this->headers = [
-            'Authorization' => sprintf('Bearer %s', $token)
-        ];
+        $this->headers['Authorization'] = sprintf('Bearer %s', $token);
         $this->client = $client ?: HttpClientDiscovery::find();
         $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
         $this->streamFactory = $streamFactory ?: Psr17FactoryDiscovery::findStreamFactory();
