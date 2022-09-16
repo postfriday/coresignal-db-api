@@ -30,11 +30,11 @@ class CompanyDTO extends DataTransferObject
 
     public string $industry;
 
-    public string $description;
+    public ?string $description;
 
-    public string $followers;
+    public ?string $followers;
 
-    public string $founded;
+    public ?string $founded;
 
     public ?string $headquarters_city;
 
@@ -48,6 +48,8 @@ class CompanyDTO extends DataTransferObject
 
     public ?string $headquarters_zip;
 
+    public ?string $headquarters_new_address;
+
     public string $logo_url;
 
     #[CastWith(CarbonCaster::class)]
@@ -58,15 +60,13 @@ class CompanyDTO extends DataTransferObject
 
     public string $last_response_code;
 
-    public string $type;
+    public ?string $type;
 
-    public string $headquarters_new_address;
+    public ?int $employees_count;
 
-    public int $employees_count;
+    public ?string $headquarters_country_restored;
 
-    public string $headquarters_country_restored;
-
-    public string $headquarters_country_parsed;
+    public ?string $headquarters_country_parsed;
 
     public string $company_shorthand_name;
 
