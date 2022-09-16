@@ -54,10 +54,10 @@ class CoresignalDbApiProvider
      */
     public function __construct(
         string                  $token,
-        LoggerInterface         $logger = null,
         ClientInterface         $client = null,
         RequestFactoryInterface $requestFactory = null,
-        StreamFactoryInterface  $streamFactory = null
+        StreamFactoryInterface  $streamFactory = null,
+        LoggerInterface         $logger = null,
     )
     {
         $this->headers[] = [
