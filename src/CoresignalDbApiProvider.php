@@ -89,7 +89,7 @@ class CoresignalDbApiProvider
     {
         $uri = self::BASE_URI . $endpointUrl;
 
-        $this->logger->info('CoreSignalDbApi->request()', [
+        $this->logger?->info('CoreSignalDbApi->request()', [
             'method' => $method,
             'uri' => $uri
         ]);
@@ -113,25 +113,25 @@ class CoresignalDbApiProvider
         $creditsRemainingHeaderName = 'X-Credits-Remaining';
         $creditsRemainingHeader = $response->getHeader($creditsRemainingHeaderName);
         if (!empty($creditsRemainingHeader)) {
-            $this->logger->info('Credits remaining:', [ $creditsRemainingHeaderName => $creditsRemainingHeader[0] ]);
+            $this->logger?->info('Credits remaining:', [ $creditsRemainingHeaderName => $creditsRemainingHeader[0] ]);
         }
 
         $statusCode = $response->getStatusCode();
         if ($statusCode > 500) {
             $reason = $response->getReasonPhrase();
-            $this->logger->error('ServiceUnavailableException: ' . $statusCode . ' ' . $reason);
+            $this->logger?->error('ServiceUnavailableException: ' . $statusCode . ' ' . $reason);
             throw new ServiceUnavailableException($reason, $statusCode);
         } elseif ($statusCode === 500) {
             $reason = $response->getReasonPhrase();
-            $this->logger->error('ServerErrorException: ' . $statusCode . ' ' . $reason);
+            $this->logger?->error('ServerErrorException: ' . $statusCode . ' ' . $reason);
             throw new ServerErrorException($reason, $statusCode);
         } elseif ($statusCode >= 400) {
             $reason = $response->getReasonPhrase();
-            $this->logger->error('ClientException: ' . $statusCode . ' ' . $reason);
+            $this->logger?->error('ClientException: ' . $statusCode . ' ' . $reason);
             throw new ClientException($reason, $statusCode);
         } elseif ($statusCode !== 200) {
             $reason = $response->getReasonPhrase();
-            $this->logger->error('ClientException: ' . $statusCode . ' ' . $reason);
+            $this->logger?->error('ClientException: ' . $statusCode . ' ' . $reason);
             throw new UnknownException();
         }
 
