@@ -27,6 +27,8 @@ class EducationDTO extends DataTransferObject
 
     public ?string $description;
 
+    public ?string $school_url;
+
     #[CastWith(CarbonCaster::class)]
     public Carbon $created;
 
@@ -34,6 +36,4 @@ class EducationDTO extends DataTransferObject
     public Carbon $last_updated;
 
     public int $deleted;
-
-    public ?string $school_url;
 }
