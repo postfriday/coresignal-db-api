@@ -41,25 +41,28 @@ class CoresignalDbApiProvider
     protected array $headers = [
         'Accept' => 'application/json',
         'Content-Type' => 'application/json',
+
     ];
 
 
     /**
-     * @param string $apikey
+     * @param string $token
      * @param LoggerInterface|null $logger
      * @param ClientInterface|null $client
      * @param RequestFactoryInterface|null $requestFactory
      * @param StreamFactoryInterface|null $streamFactory
      */
     public function __construct(
-        string $apikey,
-        LoggerInterface $logger = null,
-        ClientInterface $client = null,
+        string                  $token,
+        LoggerInterface         $logger = null,
+        ClientInterface         $client = null,
         RequestFactoryInterface $requestFactory = null,
-        StreamFactoryInterface $streamFactory = null
+        StreamFactoryInterface  $streamFactory = null
     )
     {
-        $this->authentication = new Bearer($apikey);
+        $this->headers[] = [
+            'Authorization' => sprintf('Bearer %s', $token)
+        ];
         $this->logger = $logger;
         $this->client = $client ?: HttpClientDiscovery::find();
         $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
