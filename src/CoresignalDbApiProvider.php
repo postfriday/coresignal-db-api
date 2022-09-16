@@ -63,10 +63,10 @@ class CoresignalDbApiProvider
         $this->headers = [
             'Authorization' => sprintf('Bearer %s', $token)
         ];
-        $this->logger = $logger;
         $this->client = $client ?: HttpClientDiscovery::find();
         $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
         $this->streamFactory = $streamFactory ?: Psr17FactoryDiscovery::findStreamFactory();
+        $this->logger = $logger;
     }
 
 
@@ -94,7 +94,6 @@ class CoresignalDbApiProvider
             'uri' => $uri
         ]);
         $request = $this->requestFactory->createRequest($method, $uri);
-        $request = $this->authentication->authenticate($request);
 
         if (!empty($this->headers)) {
             foreach ($this->headers as $name => $value) {
