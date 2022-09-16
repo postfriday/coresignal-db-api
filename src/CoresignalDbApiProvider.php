@@ -60,7 +60,7 @@ class CoresignalDbApiProvider
         LoggerInterface         $logger = null,
     )
     {
-        $this->headers[] = [
+        $this->headers = [
             'Authorization' => sprintf('Bearer %s', $token)
         ];
         $this->logger = $logger;
