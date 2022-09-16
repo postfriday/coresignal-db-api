@@ -19,6 +19,8 @@ class ExperienceDTO extends DataTransferObject
 
     public ?string $location;
 
+    public ?int $company_id;
+
     public ?string $company_name;
 
     public ?string $company_url;
@@ -31,6 +33,8 @@ class ExperienceDTO extends DataTransferObject
 
     public ?string $description;
 
+    public ?string $order_in_profile;
+
     #[CastWith(CarbonCaster::class)]
     public Carbon $created;
 
@@ -39,7 +43,7 @@ class ExperienceDTO extends DataTransferObject
 
     public int $deleted;
 
-    public ?string $order_in_profile;
 
-    public ?int $company_id;
+
+
 }
