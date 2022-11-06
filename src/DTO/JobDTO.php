@@ -3,6 +3,9 @@
 namespace Muscobytes\CoresignalDbApi\DTO;
 
 use Carbon\Carbon;
+use Muscobytes\CoresignalDbApi\Casts\CarbonCaster;
+use Muscobytes\CoresignalDbApi\Casts\Job\IndustryCollectionCaster;
+use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -13,19 +16,25 @@ class JobDTO extends DataTransferObject
 
     public string $title;
 
-    public string $country;
-
-    public Carbon $last_updated;
-
-    public string $employment_type;
+    public string $description;
 
     public int $company_id;
 
+    public string $company_name;
+
+    public string $company_url;
+
+    public string $employment_type;
+
+    public string $country;
+
+    public ?string $time_posted;
+
+    #[CastWith(CarbonCaster::class)]
+    public Carbon $last_updated;
+
+    #[CastWith(CarbonCaster::class)]
     public Carbon $created;
-
-    public string $description;
-
-    public string $time_posted;
 
     public int $application_active;
 
@@ -35,6 +44,7 @@ class JobDTO extends DataTransferObject
 
     public int $linkedin_job_id;
 
+    #[CastWith(IndustryCollectionCaster::class)]
     public array $job_industry_collection;
 
     public ?string $external_url;
@@ -43,11 +53,7 @@ class JobDTO extends DataTransferObject
 
     public string $applicants_count;
 
-    public string $company_name;
-
     public string $location;
-
-    public string $company_url;
 
     public string $seniority;
 
