@@ -55,7 +55,7 @@ class JobDTO extends DataTransferObject
 
     public string $location;
 
-    public string $seniority;
+    public ?string $seniority;
 
     public string $hash;
 }
