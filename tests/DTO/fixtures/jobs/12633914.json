@@ -1,0 +1,40 @@
+{
+    "country": "United States",
+    "last_updated": "2021-08-23 08:16:18",
+    "employment_type": "Full-time",
+    "company_id": 358313,
+    "created": "2021-04-21 20:01:54",
+    "description": "WE ARE We are Black Rifle Coffee Company, a veteran-owned company serving premium, fresh-roasted coffee to people who love America. We have a love for coffee, dogs, the outdoors, America, and most importantly, our customers! We are more than a product and more than a company; we are a culture. A culture full of motivated people who roll up their sleeves and get the job done with integrity, love, innovation, and radical transparency. Join us as we take action on our commitment to provide quality coffee and give back to the veteran and first responder communities.  THE ROLE Black Rifle Coffee Company is experiencing explosive growth and seeks to hire a Data Integration Engineer to work closely with developers, data architects, business analysts, and business users to implement robust development and monitoring infrastructure. This position will build, maintain and modify data integrations to sales and ERP(NetSuite) systems in the Boomi iPaaS.   YOUR TASK Create and maintain optimal data pipeline architecture in Boomi, – own all data sources (transactional, internal and external data within our e-commerce organization) and ensure their accuracy to maintain commercial functions in our digital platforms Take ownership of understanding the business and operational problems at hand and how to best solve them through a data-driven approach Execute, and maintain the strategy for our data warehousing and pipelines to cater to specific business objectives, from implementation to maintenance Be a key leader in our global organization, working fluidly across ABI’s global and local teams and functions (sales, finance, marketing, product, IT, etc.) to make data-driven initiatives successful in an efficient way Prioritize and find the most efficient path towards solving complex, ambiguous business problems with data, keeping a mindset of simplicity, robustness and speed above all Perform initial data integration with new customers, and maintain the data extraction and transformation processes Collaborate closely with users and trading partners to design, develop, test, and monitor EDI communications. Create and manage ETL packages, triggers, stored procedures, views, and SQL transactions. Develop new secure data feeds with external parties as well as internal applications including the data warehouse and business intelligence applications. Perform regular analysis and QA, diagnose ETL and database related issues, perform root cause analysis, and recommend corrective actions to management. Work with a small project team to support the design, development, implementation, monitoring, and maintenance of new ETL programs.   YOUR EXPERIENCE BSc in Engineer, Computer Science or related field (relevant professional work experience will be considered) Demonstrated experience in ETL programming utilizing SSIS packages, DTS, stored procedures, and SQL scripts. Demonstrated professional experience in IT development and support roles.  Demonstrated experience working with ERP (NetSuite experience preferred) systems and other business systems Must have demonstrated experience with Boomi iPaas Experienced with JavaScript and JavaScript frameworks like Handlebars Proficiency with SQL Experience with data pipeline engineering Good understanding of data design principles Proficient knowledge of Visual Basic/.NET programming and EDI transaction sets including the 5010 file layouts. Experience working in a Unix-based system including the ability to read and perform basic maintenance on shell scripts.  Experience with Informatica and Automate tools a plus. Ability to learn systems and business processes quickly Effective communication skills, both written and verbal   YOUR BENEFITS Competitive Pay Comprehensive medical, dental & vision package Company-paid life insurance + supplemental options Short and Long-Term disability options/coverage Extensive EAP program with legal coverage Dog-friendly and irreverently humorous work environment American values-based culture built on freedom, integrity, accountability, respect, love, and commitment to serve those who have served. BRCC is an equal opportunity employer. Applicants will receive consideration for employment without regard to age, sex, race, color, religion, national origin, genetics, disability, marital status, sexual orientation, veteran status or any other protected characteristic required by applicable law. All selected candidates will be required to submit to a pre-employment background check.",
+    "time_posted": "1 month ago",
+    "title": "Data Integration Engineer-Boomi",
+    "application_active": 1,
+    "salary": null,
+    "url": "https://www.linkedin.com/jobs/view/data-integration-engineer-boomi-at-black-rifle-coffee-company-2496630933",
+    "linkedin_job_id": 2496630933,
+    "job_industry_collection": [
+        {
+            "job_industry_list": {
+                "industry": "Consumer Goods"
+            }
+        },
+        {
+            "job_industry_list": {
+                "industry": "Food & Beverages"
+            }
+        },
+        {
+            "job_industry_list": {
+                "industry": "Apparel & Fashion"
+            }
+        }
+    ],
+    "external_url": "https://blackrifle.clearcompany.com/careers/jobs/cd8ed22b-31d5-10ab-10f2-de4ff0b32796/apply?source=1540364-CS-38794",
+    "deleted": 1,
+    "applicants_count": "Be among the first 25 applicants",
+    "company_name": "",
+    "location": "Salt Lake County, UT",
+    "company_url": "https://www.linkedin.com/company/black-rifle-coffee-company",
+    "id": 12633914,
+    "seniority": "Mid-Senior level",
+    "hash": "f7d0a95c7abe680fc92a0779c640b94b"
+}
