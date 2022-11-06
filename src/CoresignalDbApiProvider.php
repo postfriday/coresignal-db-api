@@ -11,6 +11,7 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\Authentication;
 use Http\Message\Authentication\Bearer;
 use Muscobytes\CoresignalDbApi\DTO\CompanyDTO;
+use Muscobytes\CoresignalDbApi\DTO\JobDTO;
 use Muscobytes\CoresignalDbApi\DTO\MemberDTO;
 use Muscobytes\CoresignalDbApi\Exceptions\ClientException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServerErrorException;
@@ -300,29 +301,31 @@ class CoresignalDbApiProvider
 
     /**
      * @param string $value
-     * @return array
+     * @return JobDTO
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
      * @throws ClientExceptionInterface
      * @throws UnknownException
+     * @throws UnknownProperties
      */
-    public function jobCollectBy(string $value): array
+    public function jobCollectBy(string $value): JobDTO
     {
-        return $this->request('GET', '/v1/linkedin/job/collect/' . $value);
+        return new JobDTO($this->request('GET', '/v1/linkedin/job/collect/' . $value));
     }
 
 
     /**
      * @param string $id
-     * @return array
+     * @return JobDTO
      * @throws ClientException
      * @throws ServerErrorException
      * @throws ServiceUnavailableException
      * @throws ClientExceptionInterface
      * @throws UnknownException
+     * @throws UnknownProperties
      */
-    public function jobCollectById(string $id): array
+    public function jobCollectById(string $id): JobDTO
     {
         return $this->jobCollectBy($id);
     }
