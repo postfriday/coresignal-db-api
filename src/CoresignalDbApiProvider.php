@@ -20,6 +20,7 @@ use Muscobytes\CoresignalDbApi\Exceptions\UnknownException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
@@ -39,10 +40,11 @@ class CoresignalDbApiProvider
 
     private Authentication $authentication;
 
+    public ResponseInterface $response;
+
     protected array $headers = [
         'Accept' => 'application/json',
         'Content-Type' => 'application/json',
-
     ];
 
 
@@ -105,35 +107,47 @@ class CoresignalDbApiProvider
             $request = $request->withBody($body);
         }
 
-        $response = $this->client->sendRequest($request);
+        $this->response = $this->client->sendRequest($request);
 
-        // Log remaining credits count
-        $creditsRemainingHeaderName = 'X-Credits-Remaining';
-        $creditsRemainingHeader = $response->getHeader($creditsRemainingHeaderName);
-        if (!empty($creditsRemainingHeader)) {
-            $this->logger?->info('Credits remaining:', [ $creditsRemainingHeaderName => $creditsRemainingHeader[0] ]);
-        }
-
-        $statusCode = $response->getStatusCode();
+        $statusCode = $this->response->getStatusCode();
         if ($statusCode > 500) {
-            $reason = $response->getReasonPhrase();
+            $reason = $this->response->getReasonPhrase();
             $this->logger?->error('ServiceUnavailableException: ' . $statusCode . ' ' . $reason);
             throw new ServiceUnavailableException($reason, $statusCode);
         } elseif ($statusCode === 500) {
-            $reason = $response->getReasonPhrase();
+            $reason = $this->response->getReasonPhrase();
             $this->logger?->error('ServerErrorException: ' . $statusCode . ' ' . $reason);
             throw new ServerErrorException($reason, $statusCode);
         } elseif ($statusCode >= 400) {
-            $reason = $response->getReasonPhrase();
+            $reason = $this->response->getReasonPhrase();
             $this->logger?->error('ClientException: ' . $statusCode . ' ' . $reason);
             throw new ClientException($reason, $statusCode);
         } elseif ($statusCode !== 200) {
-            $reason = $response->getReasonPhrase();
+            $reason = $this->response->getReasonPhrase();
             $this->logger?->error('ClientException: ' . $statusCode . ' ' . $reason);
             throw new UnknownException();
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($this->response->getBody()->getContents(), true);
+    }
+
+
+    protected function getResponseHeader($name): ?string
+    {
+        $value = $this->response->getHeader($name);
+        return $value ? $value[0] : null;
+    }
+
+
+    public function getRemainingCredits(): int
+    {
+        return (int)$this->getResponseHeader('X-Credits-Remaining');
+    }
+
+
+    public function getNextPageAfter(): int
+    {
+        return $this->getResponseHeader('X-next-page-after');
     }
 
 
