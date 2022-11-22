@@ -18,13 +18,13 @@ class JobDTO extends DataTransferObject
 
     public string $description;
 
-    public int $company_id;
+    public ?int $company_id;
 
     public string $company_name;
 
     public string $company_url;
 
-    public string $employment_type;
+    public ?string $employment_type;
 
     public string $country;
 
