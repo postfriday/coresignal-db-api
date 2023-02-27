@@ -11,6 +11,7 @@ use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Client\ClientExceptionInterface;
@@ -34,7 +35,7 @@ class CoresignalClient
 
     protected StreamFactoryInterface $streamFactory;
 
-    protected ?LoggerInterface $logger;
+    protected RequestInterface $request;
 
     protected ResponseInterface $response;
 
@@ -54,17 +55,17 @@ class CoresignalClient
      */
     public function __construct(
         string $token,
+        LoggerInterface $logger = null,
         ClientInterface $client = null,
         RequestFactoryInterface $requestFactory = null,
-        StreamFactoryInterface $streamFactory = null,
-        LoggerInterface $logger = null,
+        StreamFactoryInterface $streamFactory = null
     )
     {
         $this->headers['Authorization'] = sprintf('Bearer %s', $token);
+        $this->logger = $logger;
         $this->client = $client ?: HttpClientDiscovery::find();
         $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
         $this->streamFactory = $streamFactory ?: Psr17FactoryDiscovery::findStreamFactory();
-        $this->logger = $logger;
     }
 
 
@@ -91,20 +92,16 @@ class CoresignalClient
             'method' => $method,
             'uri' => $uri
         ]);
-        $request = $this->requestFactory->createRequest($method, $uri);
 
-        if (!empty($this->headers)) {
-            foreach ($this->headers as $name => $value) {
-                $request = $request->withHeader($name, $value);
-            }
-        }
+        $this->request = $this->requestFactory->createRequest($method, $uri);
+        $this->setHeaders($this->headers);
 
         if (!empty($payload)) {
             $body = $this->streamFactory->createStream(json_encode($payload));
-            $request = $request->withBody($body);
+            $this->request = $this->request->withBody($body);
         }
 
-        $this->response = $this->client->sendRequest($request);
+        $this->response = $this->client->sendRequest($this->request);
 
         $statusCode = $this->response->getStatusCode();
         if ($statusCode > 500) {
@@ -125,12 +122,23 @@ class CoresignalClient
             throw new UnknownException();
         }
 
-        return json_decode($this->response->getBody()->getContents(), true);
+        return $this->response;
     }
 
 
-    public function addHeader($key, $value): void
+    public function setHeader($key, $value): void
     {
-        $this->headers[$key] = $value;
+        $this->request = $this->request->withHeader($key, $value);
+    }
+
+
+    public function setHeaders(array $headers = []): self
+    {
+        if (!empty($headers)) {
+            foreach ($headers as $key => $value) {
+                $this->setHeader($key, $value);
+            }
+        }
+        return $this;
     }
 }

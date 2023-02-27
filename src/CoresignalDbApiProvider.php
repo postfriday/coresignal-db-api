@@ -10,6 +10,7 @@ use Muscobytes\CoresignalDbApi\DTO\CompanyDTO;
 use Muscobytes\CoresignalDbApi\DTO\JobDTO;
 use Muscobytes\CoresignalDbApi\DTO\MemberDTO;
 use Muscobytes\CoresignalDbApi\Exceptions\ClientException;
+use Muscobytes\CoresignalDbApi\Exceptions\RetryLimitExceededException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServerErrorException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServiceUnavailableException;
 use Muscobytes\CoresignalDbApi\Exceptions\UnknownException;
@@ -18,11 +19,18 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
+
 class CoresignalDbApiProvider
 {
     protected CoresignalClient $client;
 
     protected ResponseInterface $response;
+
+    protected LoggerInterface $logger;
+
+    protected int $retries = 10;
+
+    protected int $timeout = 10;
 
 
     /**
@@ -31,14 +39,16 @@ class CoresignalDbApiProvider
      */
     public function __construct(
         protected string $token,
-        protected LoggerInterface $logger,
+        LoggerInterface $logger
     )
     {
+        $this->logger = $logger;
     }
 
 
     /**
-     * @throws ClientExceptionInterface
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      */
     public function request(
         string $method,
@@ -46,28 +56,29 @@ class CoresignalDbApiProvider
         array $payload = []
     ): array
     {
+        $retry = 0;
         do {
             try {
-                $this->client = new CoresignalClient($this->token);
+                $this->client = new CoresignalClient($this->token, $this->logger);
                 $this->response = $this->client->request($method, $endpointUrl, $payload);
-            } catch (\Exception $e) {
-                $this->_log("Error {$e->getCode()}: {$e->getMessage()}", 'error');
+            } catch (
+                ServerErrorException |
+                ServiceUnavailableException |
+                UnknownException |
+                ClientExceptionInterface $e
+            ) {
                 $this->_log("Params: " . print_r($payload, true));
+                $this->_log("Error {$e->getCode()}: {$e->getMessage()}", 'error');
                 $this->_log("Response Status Code: {$this->response->getStatusCode()}", 'error');
+                sleep($this->timeout);
+                if ($retry >= $this->retries) {
+                    throw new RetryLimitExceededException('Maximum retry limit reached.');
+                }
+                $retry++;
             }
-        } while(
-            $this->response->getStatusCode() != 200
-        );
-
-
+        } while ($this->response->getStatusCode() != 200);
 
         return json_decode($this->response->getBody()->getContents(), true);
-    }
-
-
-    protected function _log(string $message, string $level = 'info'): void
-    {
-        $this->logger->log($level, date('Y.m.d H:i:s') . ' ' . $message);
     }
 
 
@@ -84,21 +95,41 @@ class CoresignalDbApiProvider
     }
 
 
-    public function getNextPageAfter(): int
+    public function getNextPageAfter(): string
     {
         return $this->getResponseHeader('X-next-page-after');
     }
 
 
-    public function addHeader($key, $value): void
+    public function getStatusCode(): string
     {
-        $this->client->addHeader($key, $value);
+        return $this->response->getStatusCode();
+    }
+
+
+    public function getTotalPages(): string
+    {
+        return $this->getResponseHeader('x-total-pages');
+    }
+
+
+    public function getTotalResults(): string
+    {
+        return $this->getResponseHeader('x-total-results');
+    }
+
+
+    protected function _log(string $message, string $level = 'info'): void
+    {
+        $this->logger->log($level, date('Y.m.d H:i:s') . ' ' . $message);
     }
 
 
     /**
      * @param string $value
      * @return MemberDTO
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
     public function memberCollectBy(string $value): MemberDTO
@@ -110,6 +141,8 @@ class CoresignalDbApiProvider
     /**
      * @param string $memberId
      * @return MemberDTO
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
     public function memberCollectById(string $memberId): MemberDTO
@@ -121,6 +154,8 @@ class CoresignalDbApiProvider
     /**
      * @param string $shorthandName
      * @return MemberDTO
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
     public function memberCollectByShorthandName(string $shorthandName): MemberDTO
@@ -132,6 +167,8 @@ class CoresignalDbApiProvider
     /**
      * @param MemberSearchFilter $filter
      * @return array
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      */
     public function memberSearchFilter(MemberSearchFilter $filter): array
     {
@@ -142,6 +179,8 @@ class CoresignalDbApiProvider
     /**
      * @param ElasticsearchQuery $query
      * @return array
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      */
     public function memberSearchEsdsl(ElasticsearchQuery $query): array
     {
@@ -154,6 +193,9 @@ class CoresignalDbApiProvider
     /**
      * @param string $value
      * @return CompanyDTO
+     * @throws ClientException
+     * @throws RetryLimitExceededException
+     * @throws UnknownProperties
      */
     public function companyCollectBy(string $value): CompanyDTO
     {
@@ -164,6 +206,9 @@ class CoresignalDbApiProvider
     /**
      * @param string $companyId
      * @return CompanyDTO
+     * @throws ClientException
+     * @throws RetryLimitExceededException
+     * @throws UnknownProperties
      */
     public function companyCollectById(string $companyId): CompanyDTO
     {
@@ -174,6 +219,9 @@ class CoresignalDbApiProvider
     /**
      * @param string $shorthandName
      * @return CompanyDTO
+     * @throws ClientException
+     * @throws RetryLimitExceededException
+     * @throws UnknownProperties
      */
     public function companyCollectByShorthandName(string $shorthandName): CompanyDTO
     {
@@ -184,6 +232,8 @@ class CoresignalDbApiProvider
     /**
      * @param CompanySearchFilter $filter
      * @return array
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      */
     public function companySearchFilter(CompanySearchFilter $filter): array
     {
@@ -194,6 +244,8 @@ class CoresignalDbApiProvider
     /**
      * @param ElasticsearchQuery $query
      * @return array
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      */
     public function companySearchEsdsl(ElasticsearchQuery $query): array
     {
@@ -206,6 +258,9 @@ class CoresignalDbApiProvider
     /**
      * @param string $value
      * @return JobDTO
+     * @throws ClientException
+     * @throws RetryLimitExceededException
+     * @throws UnknownProperties
      */
     public function jobCollectBy(string $value): JobDTO
     {
@@ -216,6 +271,9 @@ class CoresignalDbApiProvider
     /**
      * @param string $id
      * @return JobDTO
+     * @throws ClientException
+     * @throws RetryLimitExceededException
+     * @throws UnknownProperties
      */
     public function jobCollectById(string $id): JobDTO
     {
@@ -225,11 +283,19 @@ class CoresignalDbApiProvider
 
     /**
      * @param JobSearchFilter $filter
+     * @param string|null $after
      * @return array
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      */
-    public function jobSearchFilter(JobSearchFilter $filter): array
+    public function jobSearchFilter(JobSearchFilter $filter, string $after = null): array
     {
-        return $this->request('POST', '/v1/linkedin/job/search/filter', $filter->getFilters());
+        $query = $after ? "?after={$after}" : '';
+        return $this->request(
+            'POST',
+            '/v1/linkedin/job/search/filter' . $query,
+            $filter->getFilters()
+        );
     }
 
 
@@ -237,6 +303,8 @@ class CoresignalDbApiProvider
      * @param string $filterName
      * @param string $filterValue
      * @return array
+     * @throws ClientException
+     * @throws RetryLimitExceededException
      */
     public function companySearchFilterBy(string $filterName, string $filterValue): array
     {
