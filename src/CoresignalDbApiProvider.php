@@ -24,7 +24,7 @@ class CoresignalDbApiProvider
 {
     protected CoresignalClient $client;
 
-    protected ResponseInterface $response;
+    protected ?ResponseInterface $response = null;
 
     protected LoggerInterface $logger;
 
@@ -58,6 +58,7 @@ class CoresignalDbApiProvider
     {
         $retry = 0;
         do {
+            $this->response = null;
             try {
                 $this->client = new CoresignalClient($this->token, $this->logger);
                 $this->response = $this->client->request($method, $endpointUrl, $payload);
@@ -70,14 +71,14 @@ class CoresignalDbApiProvider
             ) {
                 $this->_log("Params: " . print_r($payload, true));
                 $this->_log("Error {$e->getCode()}: {$e->getMessage()}", 'error');
-                $this->_log("Response Status Code: {$this->response->getStatusCode()}", 'error');
+                $this->_log("Response Status Code: {$this->response?->getStatusCode()}", 'error');
                 sleep($this->timeout);
                 if ($retry >= $this->retries) {
                     throw new RetryLimitExceededException('Maximum retry limit reached.');
                 }
                 $retry++;
             }
-        } while ($this->response->getStatusCode() != 200);
+        } while ($this->response?->getStatusCode() != 200);
 
         return json_decode($this->response->getBody()->getContents(), true);
     }
