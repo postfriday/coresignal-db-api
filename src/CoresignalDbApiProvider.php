@@ -65,6 +65,7 @@ class CoresignalDbApiProvider
                 ServerErrorException |
                 ServiceUnavailableException |
                 UnknownException |
+                ClientException |
                 ClientExceptionInterface $e
             ) {
                 $this->_log("Params: " . print_r($payload, true));
