@@ -26,8 +26,6 @@ class CoresignalDbApiProvider
 
     protected ?ResponseInterface $response = null;
 
-    protected LoggerInterface $logger;
-
     protected int $retries = 10;
 
     protected int $timeout = 10;
@@ -35,19 +33,17 @@ class CoresignalDbApiProvider
 
     /**
      * @param string $token
-     * @param LoggerInterface $logger
+     * @param LoggerInterface|null $logger
      */
     public function __construct(
         protected string $token,
-        LoggerInterface $logger
+        protected ?LoggerInterface $logger
     )
     {
-        $this->logger = $logger;
     }
 
 
     /**
-     * @throws ClientException
      * @throws RetryLimitExceededException
      */
     public function request(
