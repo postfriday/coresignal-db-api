@@ -88,10 +88,12 @@ class CoresignalClient
     {
         $uri = self::BASE_URI . $endpointUrl;
 
-        $this->logger?->info('CoreSignalDbApi->request()', [
+        $this->logger?->debug('Request', [
             'method' => $method,
             'uri' => $uri
         ]);
+        $this->logger?->debug('Request headers', [ $this->sanitize($this->headers) ]);
+        $this->logger?->debug('Request payload', [ $payload ]);
 
         $this->request = $this->requestFactory->createRequest($method, $uri);
         $this->setHeaders($this->headers);
@@ -102,8 +104,29 @@ class CoresignalClient
         }
 
         $this->response = $this->client->sendRequest($this->request);
-
         $statusCode = $this->response->getStatusCode();
+
+        $this->logger?->debug('Response status code', [
+            'code' => $statusCode
+        ]);
+
+        if ('GET' === strtoupper($method)) {
+            $this->logger?->debug('Credits remaining', [ $this->getResponseHeader('X-Credits-Remaining') ]);
+        }
+
+        if ('POST' == strtoupper($method)) {
+            $response_headers = [
+                'x-next-page-after',
+                'x-total-pages',
+                'x-total-results'
+            ];
+            foreach ($response_headers as $response_header) {
+                $context[$response_header] = $this->getResponseHeader($response_header);
+            }
+            $this->logger?->debug('Response headers', $context);
+        }
+
+
         if ($statusCode > 500) {
             $reason = $this->response->getReasonPhrase();
             $this->logger?->error('ServiceUnavailableException: ' . $statusCode . ' ' . $reason);
@@ -126,7 +149,7 @@ class CoresignalClient
     }
 
 
-    public function setHeader($key, $value): void
+    public function setRequestHeader($key, $value): void
     {
         $this->request = $this->request->withHeader($key, $value);
     }
@@ -136,9 +159,26 @@ class CoresignalClient
     {
         if (!empty($headers)) {
             foreach ($headers as $key => $value) {
-                $this->setHeader($key, $value);
+                $this->setRequestHeader($key, $value);
             }
         }
         return $this;
+    }
+
+
+    public function getResponseHeader($name): ?string
+    {
+        $value = $this->response->getHeader($name);
+        return $value ? $value[0] : null;
+    }
+
+
+    public function sanitize(array $headers): array
+    {
+        $name = 'Authorization';
+        if (key_exists($name, $headers)) {
+            $headers[$name] = 'Bearer *** REMOVED ***';
+        }
+        return $headers;
     }
 }
