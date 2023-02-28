@@ -55,14 +55,13 @@ class CoresignalClient
      */
     public function __construct(
         string $token,
-        LoggerInterface $logger = null,
+        protected ?LoggerInterface $logger = null,
         ClientInterface $client = null,
         RequestFactoryInterface $requestFactory = null,
         StreamFactoryInterface $streamFactory = null
     )
     {
         $this->headers['Authorization'] = sprintf('Bearer %s', $token);
-        $this->logger = $logger;
         $this->client = $client ?: HttpClientDiscovery::find();
         $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
         $this->streamFactory = $streamFactory ?: Psr17FactoryDiscovery::findStreamFactory();
