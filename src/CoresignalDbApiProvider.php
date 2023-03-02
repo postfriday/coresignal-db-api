@@ -1,7 +1,8 @@
-<?php
-/**
+<?php /**
  * Coresignal DB API Reference
  * https://api.coresignal.com/dbapi/docs#/
+ *
+ * @noinspection PhpUnused
  */
 
 namespace Muscobytes\CoresignalDbApi;
@@ -16,12 +17,14 @@ use Muscobytes\CoresignalDbApi\Exceptions\ServiceUnavailableException;
 use Muscobytes\CoresignalDbApi\Exceptions\UnknownException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Log\LoggerInterface;
+use Psr\Log\LoggerAwareTrait;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
 
 class CoresignalDbApiProvider
 {
+    use LoggerAwareTrait;
+
     protected CoresignalClient $client;
 
     protected ?ResponseInterface $response = null;
@@ -33,12 +36,8 @@ class CoresignalDbApiProvider
 
     /**
      * @param string $token
-     * @param LoggerInterface|null $logger
      */
-    public function __construct(
-        protected string $token,
-        protected ?LoggerInterface $logger
-    )
+    public function __construct(protected string $token)
     {
     }
 
@@ -56,7 +55,11 @@ class CoresignalDbApiProvider
         do {
             $this->response = null;
             try {
-                $this->client = new CoresignalClient($this->token, $this->logger);
+                $this->client = new CoresignalClient($this->token);
+
+                if($this->logger) {
+                    $this->client->setLogger($this->logger);
+                }
                 $this->response = $this->client->request($method, $endpointUrl, $payload);
             } catch (
                 ServerErrorException |
@@ -126,7 +129,6 @@ class CoresignalDbApiProvider
     /**
      * @param string $value
      * @return MemberDTO
-     * @throws ClientException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -139,7 +141,6 @@ class CoresignalDbApiProvider
     /**
      * @param string $memberId
      * @return MemberDTO
-     * @throws ClientException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -152,7 +153,6 @@ class CoresignalDbApiProvider
     /**
      * @param string $shorthandName
      * @return MemberDTO
-     * @throws ClientException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -165,7 +165,6 @@ class CoresignalDbApiProvider
     /**
      * @param MemberSearchFilter $filter
      * @return array
-     * @throws ClientException
      * @throws RetryLimitExceededException
      */
     public function memberSearchFilter(MemberSearchFilter $filter): array
@@ -177,7 +176,6 @@ class CoresignalDbApiProvider
     /**
      * @param ElasticsearchQuery $query
      * @return array
-     * @throws ClientException
      * @throws RetryLimitExceededException
      */
     public function memberSearchEsdsl(ElasticsearchQuery $query): array
@@ -191,7 +189,6 @@ class CoresignalDbApiProvider
     /**
      * @param string $value
      * @return CompanyDTO
-     * @throws ClientException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -204,7 +201,6 @@ class CoresignalDbApiProvider
     /**
      * @param string $companyId
      * @return CompanyDTO
-     * @throws ClientException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -217,7 +213,6 @@ class CoresignalDbApiProvider
     /**
      * @param string $shorthandName
      * @return CompanyDTO
-     * @throws ClientException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -230,7 +225,6 @@ class CoresignalDbApiProvider
     /**
      * @param CompanySearchFilter $filter
      * @return array
-     * @throws ClientException
      * @throws RetryLimitExceededException
      */
     public function companySearchFilter(CompanySearchFilter $filter): array
@@ -242,7 +236,6 @@ class CoresignalDbApiProvider
     /**
      * @param ElasticsearchQuery $query
      * @return array
-     * @throws ClientException
      * @throws RetryLimitExceededException
      */
     public function companySearchEsdsl(ElasticsearchQuery $query): array
@@ -256,7 +249,6 @@ class CoresignalDbApiProvider
     /**
      * @param string $value
      * @return JobDTO
-     * @throws ClientException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -269,7 +261,6 @@ class CoresignalDbApiProvider
     /**
      * @param string $id
      * @return JobDTO
-     * @throws ClientException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -283,12 +274,11 @@ class CoresignalDbApiProvider
      * @param JobSearchFilter $filter
      * @param string|null $after
      * @return array
-     * @throws ClientException
      * @throws RetryLimitExceededException
      */
     public function jobSearchFilter(JobSearchFilter $filter, string $after = null): array
     {
-        $query = $after ? "?after={$after}" : '';
+        $query = $after ? "?after=$after" : '';
         return $this->request(
             'POST',
             '/v1/linkedin/job/search/filter' . $query,
@@ -301,7 +291,6 @@ class CoresignalDbApiProvider
      * @param string $filterName
      * @param string $filterValue
      * @return array
-     * @throws ClientException
      * @throws RetryLimitExceededException
      */
     public function companySearchFilterBy(string $filterName, string $filterValue): array

@@ -16,7 +16,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Log\LoggerAwareTrait;
-use Psr\Log\LoggerInterface;
 
 
 class CoresignalClient
@@ -51,11 +50,9 @@ class CoresignalClient
      * @param ClientInterface|null $client
      * @param RequestFactoryInterface|null $requestFactory
      * @param StreamFactoryInterface|null $streamFactory
-     * @param LoggerInterface|null $logger
      */
     public function __construct(
         string $token,
-        protected ?LoggerInterface $logger = null,
         ClientInterface $client = null,
         RequestFactoryInterface $requestFactory = null,
         StreamFactoryInterface $streamFactory = null
@@ -105,9 +102,7 @@ class CoresignalClient
         $this->response = $this->client->sendRequest($this->request);
         $statusCode = $this->response->getStatusCode();
 
-        $this->logger?->debug('Response status code', [
-            'code' => $statusCode
-        ]);
+        $this->logger?->debug('Response status code', [$statusCode]);
 
         if ('GET' === strtoupper($method)) {
             $this->logger?->debug('Credits remaining', [ $this->getResponseHeader('X-Credits-Remaining') ]);
