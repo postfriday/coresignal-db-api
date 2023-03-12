@@ -122,7 +122,7 @@ class CoresignalDbApiProvider
 
     protected function _log(string $message, string $level = 'info'): void
     {
-        $this->logger->log($level, date('Y.m.d H:i:s') . ' ' . $message);
+        $this->logger?->log($level, date('Y.m.d H:i:s') . ' ' . $message);
     }
 
 
