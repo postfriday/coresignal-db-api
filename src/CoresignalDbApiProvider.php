@@ -11,6 +11,7 @@ use Muscobytes\CoresignalDbApi\DTO\CompanyDTO;
 use Muscobytes\CoresignalDbApi\DTO\JobDTO;
 use Muscobytes\CoresignalDbApi\DTO\MemberDTO;
 use Muscobytes\CoresignalDbApi\Exceptions\ClientException;
+use Muscobytes\CoresignalDbApi\Exceptions\PaymentRequiredException;
 use Muscobytes\CoresignalDbApi\Exceptions\RetryLimitExceededException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServerErrorException;
 use Muscobytes\CoresignalDbApi\Exceptions\ServiceUnavailableException;
@@ -44,6 +45,7 @@ class CoresignalDbApiProvider
 
     /**
      * @throws RetryLimitExceededException
+     * @throws PaymentRequiredException
      */
     public function request(
         string $method,
@@ -71,6 +73,9 @@ class CoresignalDbApiProvider
                 $this->_log("Params: " . print_r($payload, true));
                 $this->_log("Error {$e->getCode()}: {$e->getMessage()}", 'error');
                 $this->_log("Response Status Code: {$this->response?->getStatusCode()}", 'error');
+                if ($e->getCode() == 402) {
+                    throw new PaymentRequiredException($e->getMessage(), $e->getCode(), $e);
+                }
                 sleep($this->timeout);
                 if ($retry >= $this->retries) {
                     throw new RetryLimitExceededException('Maximum retry limit reached.');
