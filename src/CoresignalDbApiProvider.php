@@ -135,6 +135,7 @@ class CoresignalDbApiProvider
      * @param string $value
      * @return MemberDTO
      * @throws RetryLimitExceededException
+     * @throws PaymentRequiredException
      * @throws UnknownProperties
      */
     public function memberCollectBy(string $value): MemberDTO
@@ -146,6 +147,7 @@ class CoresignalDbApiProvider
     /**
      * @param string $memberId
      * @return MemberDTO
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -158,6 +160,7 @@ class CoresignalDbApiProvider
     /**
      * @param string $shorthandName
      * @return MemberDTO
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -170,6 +173,7 @@ class CoresignalDbApiProvider
     /**
      * @param MemberSearchFilter $filter
      * @return array
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      */
     public function memberSearchFilter(MemberSearchFilter $filter): array
@@ -181,6 +185,7 @@ class CoresignalDbApiProvider
     /**
      * @param ElasticsearchQuery $query
      * @return array
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      */
     public function memberSearchEsdsl(ElasticsearchQuery $query): array
@@ -194,6 +199,7 @@ class CoresignalDbApiProvider
     /**
      * @param string $value
      * @return CompanyDTO
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -206,6 +212,7 @@ class CoresignalDbApiProvider
     /**
      * @param string $companyId
      * @return CompanyDTO
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -218,6 +225,7 @@ class CoresignalDbApiProvider
     /**
      * @param string $shorthandName
      * @return CompanyDTO
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -230,6 +238,7 @@ class CoresignalDbApiProvider
     /**
      * @param CompanySearchFilter $filter
      * @return array
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      */
     public function companySearchFilter(CompanySearchFilter $filter): array
@@ -241,6 +250,7 @@ class CoresignalDbApiProvider
     /**
      * @param ElasticsearchQuery $query
      * @return array
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      */
     public function companySearchEsdsl(ElasticsearchQuery $query): array
@@ -254,6 +264,7 @@ class CoresignalDbApiProvider
     /**
      * @param string $value
      * @return JobDTO
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -266,6 +277,7 @@ class CoresignalDbApiProvider
     /**
      * @param string $id
      * @return JobDTO
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      * @throws UnknownProperties
      */
@@ -279,6 +291,7 @@ class CoresignalDbApiProvider
      * @param JobSearchFilter $filter
      * @param string|null $after
      * @return array
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      */
     public function jobSearchFilter(JobSearchFilter $filter, string $after = null): array
@@ -296,6 +309,7 @@ class CoresignalDbApiProvider
      * @param string $filterName
      * @param string $filterValue
      * @return array
+     * @throws PaymentRequiredException
      * @throws RetryLimitExceededException
      */
     public function companySearchFilterBy(string $filterName, string $filterValue): array
